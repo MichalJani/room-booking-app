@@ -1,7 +1,11 @@
 ## Material UI docs:
+
 [@material-ui/core](https://material-ui.com/getting-started/usage/)
+
 [@material-ui/icons](https://material-ui.com/components/icons/)
+
 [@material-ui/system](https://material-ui.com/system/basics/)
+
 [@material-ui/styles](https://material-ui.com/styles/basics/)
 
 ## Available Scripts
@@ -30,4 +34,3 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
