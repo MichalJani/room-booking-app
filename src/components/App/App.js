@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container } from '@material-ui/core';
 
-class App extends Component {
-  render() {
-    return (
-      <Container>
-        <MainPage />
-      </Container>
-    );
-  }
-}
+const App = () => (
+  <Container>
+    <MainPage />
+  </Container>
+)
+
 
 export default App;
