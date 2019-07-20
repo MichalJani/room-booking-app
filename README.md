@@ -8,6 +8,10 @@
 
 [@material-ui/styles](https://material-ui.com/styles/basics/)
 
+## Date-fns docs:
+
+[Date-fns-1.30](https://date-fns.org/v1.30.1/docs/Getting-Started)
+
 ## Available Scripts
 
 In the project directory, you can run:
