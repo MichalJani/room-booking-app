@@ -13,21 +13,21 @@ export const getAllEvents = () => {
   };
 };
 
-export const updateEvent = (payload) => {
+export const updateEvent = payload => {
   return {
     type: UPDATE_EVENT,
     payload
   };
 };
 
-export const cancelEvent = (id) => {
+export const cancelEvent = id => {
   return {
     type: CANCEL_EVENT,
     id
   };
 };
 
-export const getEvent = (id) => {
+export const getEvent = id => {
   return {
     type: GET_EVENT,
     id
