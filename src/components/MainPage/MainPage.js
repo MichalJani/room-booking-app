@@ -10,11 +10,7 @@ import BottomAppBar from "../BottomAppBar/BottomAppBar";
 
 const useStyles = makeStyles(theme => ({
   mainPageContainer: {
-    backgroundColor: "limegreen",
-    minHeight: "100%",
-    height: "100%",
-    minWidth: "100%",
-    flexGrow: 1
+    backgroundColor: "limegreen"
   },
   statusSection: {
     justifySelf: "center"
