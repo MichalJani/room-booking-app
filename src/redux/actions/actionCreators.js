@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { ADD_EVENT, GET_ALL_EVENTS, UPDATE_EVENT, CANCEL_EVENT, GET_EVENT } from "./actionTypes";
 import callApi from './apiCaller';
+import axios from 'axios';
 
 // export const getAllEvents = () => {
 //   return {
@@ -8,13 +8,18 @@ import callApi from './apiCaller';
 //   };
 // };
 
-export const getAllEvents = () => dispatch => {
-  callApi('/events')
-    .then(() => dispatch({
-      type: GET_ALL_EVENTS
-    })
-    )
-};
+export const getAllEvents = () => {
+  console.log('hey')
+  return dispatch => {
+    callApi('events')
+    // axios('/events')
+      .then((res) => dispatch({
+        type: GET_ALL_EVENTS,
+        payload: res
+      })
+      )
+  };
+}
 
 export const addEvent = payload => {
   return {

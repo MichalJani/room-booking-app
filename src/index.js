@@ -6,9 +6,10 @@ import "./index.css";
 import App from "./components/App/App";
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
+  // <ThemeProvider theme={theme}>
+    // <CssBaseline />
     <App />
-  </ThemeProvider>,
+  // </ThemeProvider>
+  ,
   document.getElementById("root")
 );
