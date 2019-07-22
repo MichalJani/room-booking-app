@@ -6,6 +6,7 @@ import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
+    position: "absolute",
     top: "auto",
     bottom: 0
   },
@@ -27,7 +28,7 @@ const BottomAppBar = () => {
 
   return (
     <React.Fragment>
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
+      <AppBar color="primary" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <Button className={classes.button}>Find Free Space</Button>
 

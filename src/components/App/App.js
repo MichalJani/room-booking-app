@@ -8,7 +8,6 @@ import BottomAppBar from "../BottomAppBar/BottomAppBar";
 
 const useStyles = makeStyles(theme => ({
   appContainer: {
-    backgroundColor: "violet",
     minHeight: "100vh",
     minWidth: "100%",
     margin: 0,

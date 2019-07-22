@@ -7,42 +7,43 @@ import logo from "../../assets/logo.png";
 import Logo from "../Logo/Logo";
 import StatusSection from "../StatusSection/StatusSection";
 import BottomAppBar from "../BottomAppBar/BottomAppBar";
+import QuickReservationButtonGroup from "../QuickReservationButtonGroup/QuickReservationButtonGroup";
 
 const useStyles = makeStyles(theme => ({
-  mainPageContainer: {
-    backgroundColor: "limegreen"
-  },
   statusSection: {
+    flexDirection: "column",
     justifySelf: "center"
   },
-  leftColumn: {
-    minHeight: "100%",
-    backgroundColor: "blue"
-  },
   mainGrid: {
-    backgroundColor: "pink",
-    flexGrow: 1
+    minHeight: "100%"
   },
   leftColumnContainer: {
     justifyContent: "space-between",
     flexDirection: "column",
-    minHeight: "100%",
-    backgroundColor: "yellow"
+    minHeight: "100%"
   }
 }));
 
 const MainPage = () => {
   const classes = useStyles();
   return (
-    <Container className={classes.mainPageContainer} maxWidth={false}>
+    <Container className={classes.mainPageContainer} maxWidth="lg">
       <Grid container spacing={0} className={classes.mainGrid}>
         <Grid item xs={8} className={classes.leftColumn}>
           <Grid container className={classes.leftColumnContainer}>
             <Grid item>
               <Logo src={logo} alt="Logo" />
             </Grid>
-            <Grid item className={classes.statusSection}>
-              <StatusSection status="Avalible" roomName="Room 402" />
+            <Grid item container className={classes.statusSection}>
+              <Grid item>
+                <StatusSection status="Avalible" roomName="Room 402" />
+              </Grid>
+              <Grid item mt={50}>
+                <QuickReservationButtonGroup
+                  buttonVariants={[15, 30, 45, 60, 90]}
+                  onClick={() => null}
+                />
+              </Grid>
             </Grid>
             <Grid item />
           </Grid>
