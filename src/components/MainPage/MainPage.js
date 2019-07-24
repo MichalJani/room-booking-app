@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getAllEvents } from '../../redux/actions/actionCreators';
 
-const MainPage = ({ events, getAllEvents }) => {
+const MainPage = ({ getAllEvents }) => {
 
   return (
     <Container>

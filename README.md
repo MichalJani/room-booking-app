@@ -1,3 +1,15 @@
+# How to use
+
+1. `npm install`
+
+2. `npm start`
+
+3. Otwórz konsolę devTools w przeglądarce
+
+4. Kliknij guzik
+
+5. w konsoli wyświetlą sie dane
+
 ## Material UI docs:
 
 [@material-ui/core](https://material-ui.com/getting-started/usage/)
