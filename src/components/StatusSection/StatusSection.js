@@ -5,13 +5,14 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   container: {
-    backgroundColor: "grey"
+    padding: 0,
+    margin: 0
   }
 }));
 const StatusSection = ({ status, roomName }) => {
   const classes = useStyles();
   return (
-    <Container maxWidth="lg" className={classes.container}>
+    <Container maxWidth="false" className={classes.container}>
       <Typography variant="h4" component="h4">
         {status}
       </Typography>
