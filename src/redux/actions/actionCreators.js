@@ -22,6 +22,24 @@ export const getAllEventsRequest = () => {
   };
 };
 
+
+export const getEvent = payload => {
+  return {
+    type: GET_EVENT,
+    payload,
+  };
+};
+
+
+export const getEventRequest = id => {
+  return dispatch => {
+    callApi(`events/${id}`)
+      .then(res => {
+        dispatch(getEvent(res));
+      });
+  };
+};
+
 export const addEvent = payload => {
   return {
     type: ADD_EVENT,
@@ -29,11 +47,12 @@ export const addEvent = payload => {
   };
 };
 
-export const addEventRequest = (event) => {
+export const addEventRequest = event => {
   return dispatch => {
-    callApi('events', 'POST', event).then(res => {
-      dispatch(addEvent(res));
-    });
+    callApi('events', 'POST', event)
+      .then(res => {
+        dispatch(addEvent(res));
+      });
   };
 };
 
@@ -44,41 +63,27 @@ export const updateEvent = payload => {
   };
 };
 
-export const addEventRequest = (event) => {
+export const updateEventRequest = (event) => {
   return dispatch => {
-    callApi('events', 'POST', event).then(res => {
-      dispatch(addEvent(res));
-    });
+    callApi('events', 'POST', event)
+      .then(res => {
+        dispatch(updateEvent(res));
+      });
   };
 };
 
-export const cancelEvent = id => {
+export const cancelEvent = payload => {
   return {
     type: CANCEL_EVENT,
-    id,
+    payload,
   };
 };
 
-export const addEventRequest = (event) => {
+export const cancelEventRequest = id => {
   return dispatch => {
-    callApi('events', 'POST', event).then(res => {
-      dispatch(addEvent(res));
+    callApi(`events/${id}`, 'DELETE').then(res => {
+      dispatch(cancelEvent(res));
     });
   };
 };
 
-export const getEvent = id => {
-  return {
-    type: GET_EVENT,
-    id,
-  };
-};
-
-
-export const getEventRequest = id => {
-  return dispatch => {
-    callApi('events', id).then(res => {
-      dispatch(getEvent(res));
-    });
-  };
-};
