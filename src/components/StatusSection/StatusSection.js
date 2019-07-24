@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Typography, Container } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Typography, Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   container: {
     padding: 0,
-    margin: 0
-  }
+    margin: 0,
+  },
 }));
 const StatusSection = ({ status, roomName }) => {
   const classes = useStyles();
@@ -25,7 +25,7 @@ const StatusSection = ({ status, roomName }) => {
 
 StatusSection.propTypes = {
   status: PropTypes.string.isRequired,
-  roomName: PropTypes.string.isRequired
+  roomName: PropTypes.string.isRequired,
 };
 
 export default StatusSection;

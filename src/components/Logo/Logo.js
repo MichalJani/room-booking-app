@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Logo = ({ src, alt }) => {
   return (
@@ -11,7 +11,7 @@ const Logo = ({ src, alt }) => {
 
 Logo.propTypes = {
   src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
 };
 
 export default Logo;

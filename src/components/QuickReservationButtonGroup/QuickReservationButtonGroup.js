@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const QuickReservationButtonGroup = ({ buttonVariants, onClick }) => {
   return (
@@ -20,7 +20,7 @@ const QuickReservationButtonGroup = ({ buttonVariants, onClick }) => {
 
 QuickReservationButtonGroup.propTypes = {
   buttonVariants: PropTypes.arrayOf(PropTypes.number).isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 export default QuickReservationButtonGroup;
