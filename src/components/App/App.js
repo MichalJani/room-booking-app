@@ -4,10 +4,6 @@ import { Provider } from 'react-redux';
 import { makeStyles } from '@material-ui/styles';
 import store from '../../store';
 import MainPage from '../MainPage/MainPage';
-<<<<<<< HEAD
-=======
-import BottomAppBar from '../BottomAppBar/BottomAppBar';
->>>>>>> develop
 
 const useStyles = makeStyles(theme => ({
   appContainer: {

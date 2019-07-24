@@ -10,7 +10,7 @@ import callApi from './apiCaller';
 export const getAllEvents = payload => {
   return {
     type: GET_ALL_EVENTS,
-    payload
+    payload,
   };
 };
 
@@ -22,7 +22,6 @@ export const getAllEventsRequest = () => {
   };
 };
 
-
 export const getEvent = payload => {
   return {
     type: GET_EVENT,
@@ -30,13 +29,11 @@ export const getEvent = payload => {
   };
 };
 
-
 export const getEventRequest = id => {
   return dispatch => {
-    callApi(`events/${id}`)
-      .then(res => {
-        dispatch(getEvent(res));
-      });
+    callApi(`events/${id}`).then(res => {
+      dispatch(getEvent(res));
+    });
   };
 };
 
@@ -49,10 +46,9 @@ export const addEvent = payload => {
 
 export const addEventRequest = event => {
   return dispatch => {
-    callApi('events', 'POST', event)
-      .then(res => {
-        dispatch(addEvent(res));
-      });
+    callApi('events', 'POST', event).then(res => {
+      dispatch(addEvent(res));
+    });
   };
 };
 
@@ -63,12 +59,11 @@ export const updateEvent = payload => {
   };
 };
 
-export const updateEventRequest = (event) => {
+export const updateEventRequest = event => {
   return dispatch => {
-    callApi('events', 'POST', event)
-      .then(res => {
-        dispatch(updateEvent(res));
-      });
+    callApi('events', 'POST', event).then(res => {
+      dispatch(updateEvent(res));
+    });
   };
 };
 
@@ -86,4 +81,3 @@ export const cancelEventRequest = id => {
     });
   };
 };
-
