@@ -4,11 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import { Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getAllEvents } from '../../redux/actions/actionCreators';
+
 const MainPage = ({ events, getAllEvents }) => {
 
-  // handleClick = () => {
-  //   props.getAllEvents()
-  // }
   return (
     <Container>
       <Grid container spacing={0}>
@@ -23,12 +21,6 @@ const MainPage = ({ events, getAllEvents }) => {
             </Button>
         </Grid>
         <Grid item md={4}>
-
-        </Grid>
-      </Grid>
-      <Grid container spacing={0}>
-        <Grid item md={8}>
-          <p>{events}</p>
         </Grid>
       </Grid>
     </Container>
@@ -36,8 +28,6 @@ const MainPage = ({ events, getAllEvents }) => {
 
 }
 
-const mapStateToProps = state => ({
-  events: state.payload
-})
 
-export default connect(mapStateToProps, { getAllEvents })(MainPage);
+
+export default connect(null, { getAllEvents })(MainPage);
