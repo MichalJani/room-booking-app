@@ -1,9 +1,7 @@
 import { ADD_EVENT, GET_ALL_EVENTS, UPDATE_EVENT, CANCEL_EVENT, GET_EVENT } from "../actions/actionTypes";
 
 const initialState = {
-  eventList: [],
-  event: null,
-  loading: false
+  eventList: []
 };
 
 const eventReducer = (state = initialState, action) => {
@@ -38,12 +36,6 @@ const eventReducer = (state = initialState, action) => {
       return {
         ...state,
         eventList: state.eventList.filter(event => event.id !== action.payload)
-      };
-
-    case EVENTS_LOADING:
-      return {
-        ...state,
-        loading: true
       };
 
     default:
