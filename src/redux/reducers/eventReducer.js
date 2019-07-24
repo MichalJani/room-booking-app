@@ -1,4 +1,10 @@
-import { ADD_EVENT, GET_ALL_EVENTS, UPDATE_EVENT, CANCEL_EVENT, GET_EVENT } from "../actions/actionTypes";
+import {
+  ADD_EVENT,
+  GET_ALL_EVENTS,
+  UPDATE_EVENT,
+  CANCEL_EVENT,
+  GET_EVENT
+} from '../actions/actionTypes';
 
 const initialState = {
   eventList: []
@@ -25,8 +31,10 @@ const eventReducer = (state = initialState, action) => {
       };
 
     case UPDATE_EVENT:
-      const filterList = state.eventList.filter(event => event.id !== action.payload.id);
-      const newList = [action.payload, filterList]
+      const filterList = state.eventList.filter(
+        event => event.id !== action.payload.id
+      );
+      const newList = [action.payload, filterList];
       return {
         ...state,
         eventList: newList
@@ -39,7 +47,7 @@ const eventReducer = (state = initialState, action) => {
       };
 
     default:
-      return state
+      return state;
   }
 };
 

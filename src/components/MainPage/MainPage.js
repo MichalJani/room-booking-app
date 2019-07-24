@@ -1,26 +1,26 @@
-import React from "react";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/styles";
-import { Typography } from "@material-ui/core";
-import logo from "../../assets/logo.png";
-import Logo from "../Logo/Logo";
-import StatusSection from "../StatusSection/StatusSection";
-import BottomAppBar from "../BottomAppBar/BottomAppBar";
-import QuickReservationButtonGroup from "../QuickReservationButtonGroup/QuickReservationButtonGroup";
+import React from 'react';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/styles';
+import { Typography } from '@material-ui/core';
+import logo from '../../assets/logo.png';
+import Logo from '../Logo/Logo';
+import StatusSection from '../StatusSection/StatusSection';
+import BottomAppBar from '../BottomAppBar/BottomAppBar';
+import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickReservationButtonGroup';
 
 const useStyles = makeStyles(theme => ({
   statusSection: {
-    flexDirection: "column",
-    justifySelf: "center"
+    flexDirection: 'column',
+    justifySelf: 'center'
   },
   mainGrid: {
-    minHeight: "100%"
+    minHeight: '100%'
   },
   leftColumnContainer: {
-    justifyContent: "space-between",
-    flexDirection: "column",
-    minHeight: "100%"
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    minHeight: '100%'
   }
 }));
 

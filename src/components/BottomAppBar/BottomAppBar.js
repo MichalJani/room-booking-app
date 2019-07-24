@@ -1,25 +1,25 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import { Button } from "@material-ui/core";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
-    position: "absolute",
-    top: "auto",
+    position: 'absolute',
+    top: 'auto',
     bottom: 0
   },
   grow: {
     flexGrow: 1
   },
   button: {
-    fontWeight: "bold",
-    color: "white"
+    fontWeight: 'bold',
+    color: 'white'
   },
   toolbar: {
-    display: "flex",
-    justifyContent: "space-between"
+    display: 'flex',
+    justifyContent: 'space-between'
   }
 }));
 
