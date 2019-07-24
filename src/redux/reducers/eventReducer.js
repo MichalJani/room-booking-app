@@ -1,28 +1,50 @@
 import { ADD_EVENT, GET_ALL_EVENTS, UPDATE_EVENT, CANCEL_EVENT, GET_EVENT } from "../actions/actionTypes";
 
 const initialState = {
-  eventList: []
-}
+  eventList: [],
+  event: null,
+  loading: false
+};
 
 const eventReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_EVENTS:
-      return [
+      return {
         ...state,
-        { eventList: action.events }
-      ]
+        eventList: action.payload
+      };
 
     case ADD_EVENT:
-      return
+      return {
+        ...state,
+        eventList: [action.payload, ...state.eventList]
+      };
 
     case GET_EVENT:
-      return
+      return {
+        ...state,
+        event: action.payload
+      };
 
     case UPDATE_EVENT:
-      return
+      const filterList = state.eventList.filter(event => event.id !== action.payload.id);
+      const newList = [action.payload, filterList]
+      return {
+        ...state,
+        eventList: newList
+      };
 
     case CANCEL_EVENT:
-      return
+      return {
+        ...state,
+        eventList: state.eventList.filter(event => event.id !== action.payload)
+      };
+
+    case EVENTS_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
 
     default:
       return state
