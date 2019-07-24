@@ -3,11 +3,11 @@ import {
   GET_ALL_EVENTS,
   UPDATE_EVENT,
   CANCEL_EVENT,
-  GET_EVENT,
+  GET_EVENT
 } from '../actions/actionTypes';
 
 const initialState = {
-  eventList: [],
+  eventList: []
 };
 
 const eventReducer = (state = initialState, action) => {
@@ -15,19 +15,19 @@ const eventReducer = (state = initialState, action) => {
     case GET_ALL_EVENTS:
       return {
         ...state,
-        eventList: action.payload,
+        eventList: action.payload
       };
 
     case ADD_EVENT:
       return {
         ...state,
-        eventList: [action.payload, ...state.eventList],
+        eventList: [action.payload, ...state.eventList]
       };
 
     case GET_EVENT:
       return {
         ...state,
-        event: action.payload,
+        event: action.payload
       };
 
     case UPDATE_EVENT:
@@ -37,13 +37,13 @@ const eventReducer = (state = initialState, action) => {
       const newList = [action.payload, filterList];
       return {
         ...state,
-        eventList: newList,
+        eventList: newList
       };
 
     case CANCEL_EVENT:
       return {
         ...state,
-        eventList: state.eventList.filter(event => event.id !== action.payload),
+        eventList: state.eventList.filter(event => event.id !== action.payload)
       };
 
     default:

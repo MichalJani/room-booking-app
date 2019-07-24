@@ -9,11 +9,11 @@ import * as moment from 'moment';
 
 const useStyles = makeStyles(() => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   title: {
-    flexGrow: 1,
-  },
+    flexGrow: 1
+  }
 }));
 
 const UpperAppBar = () => {

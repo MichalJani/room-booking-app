@@ -3,14 +3,14 @@ import {
   GET_ALL_EVENTS,
   UPDATE_EVENT,
   CANCEL_EVENT,
-  GET_EVENT,
+  GET_EVENT
 } from './actionTypes';
 import callApi from './apiCaller';
 
 export const getAllEvents = payload => {
   return {
     type: GET_ALL_EVENTS,
-    payload,
+    payload
   };
 };
 
@@ -25,7 +25,7 @@ export const getAllEventsRequest = () => {
 export const getEvent = payload => {
   return {
     type: GET_EVENT,
-    payload,
+    payload
   };
 };
 
@@ -40,7 +40,7 @@ export const getEventRequest = id => {
 export const addEvent = payload => {
   return {
     type: ADD_EVENT,
-    payload,
+    payload
   };
 };
 
@@ -55,7 +55,7 @@ export const addEventRequest = event => {
 export const updateEvent = payload => {
   return {
     type: UPDATE_EVENT,
-    payload,
+    payload
   };
 };
 
@@ -70,7 +70,7 @@ export const updateEventRequest = event => {
 export const cancelEvent = payload => {
   return {
     type: CANCEL_EVENT,
-    payload,
+    payload
   };
 };
 

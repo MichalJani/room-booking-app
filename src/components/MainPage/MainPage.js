@@ -12,16 +12,16 @@ import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickRes
 const useStyles = makeStyles(theme => ({
   statusSection: {
     flexDirection: 'column',
-    justifySelf: 'center',
+    justifySelf: 'center'
   },
   mainGrid: {
-    minHeight: '100%',
+    minHeight: '100%'
   },
   leftColumnContainer: {
     justifyContent: 'space-between',
     flexDirection: 'column',
-    minHeight: '100%',
-  },
+    minHeight: '100%'
+  }
 }));
 
 const MainPage = () => {

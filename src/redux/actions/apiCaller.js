@@ -7,7 +7,7 @@ export default function callApi(endpoint, method = 'GET', body) {
     method,
     url: `${BASE_URL}/${endpoint}`,
     data: JSON.stringify(body),
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json' }
   })
     .then(res => {
       return res.data;

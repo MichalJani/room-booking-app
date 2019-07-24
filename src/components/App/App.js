@@ -11,8 +11,8 @@ const useStyles = makeStyles(theme => ({
     minWidth: '100%',
     margin: 0,
     padding: 0,
-    display: 'flex',
-  },
+    display: 'flex'
+  }
 }));
 const App = () => {
   const classes = useStyles();

@@ -8,19 +8,19 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'absolute',
     top: 'auto',
-    bottom: 0,
+    bottom: 0
   },
   grow: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   button: {
     fontWeight: 'bold',
-    color: 'white',
+    color: 'white'
   },
   toolbar: {
     display: 'flex',
-    justifyContent: 'space-between',
-  },
+    justifyContent: 'space-between'
+  }
 }));
 
 const BottomAppBar = () => {
