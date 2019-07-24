@@ -7,10 +7,10 @@ import {
 } from './actionTypes';
 import callApi from './apiCaller';
 
-export const getAllEvents = res => {
+export const getAllEvents = payload => {
   return {
     type: GET_ALL_EVENTS,
-    payload: res,
+    payload
   };
 };
 
@@ -29,10 +29,26 @@ export const addEvent = payload => {
   };
 };
 
+export const addEventRequest = (event) => {
+  return dispatch => {
+    callApi('events', 'POST', event).then(res => {
+      dispatch(addEvent(res));
+    });
+  };
+};
+
 export const updateEvent = payload => {
   return {
     type: UPDATE_EVENT,
     payload,
+  };
+};
+
+export const addEventRequest = (event) => {
+  return dispatch => {
+    callApi('events', 'POST', event).then(res => {
+      dispatch(addEvent(res));
+    });
   };
 };
 
@@ -43,9 +59,26 @@ export const cancelEvent = id => {
   };
 };
 
+export const addEventRequest = (event) => {
+  return dispatch => {
+    callApi('events', 'POST', event).then(res => {
+      dispatch(addEvent(res));
+    });
+  };
+};
+
 export const getEvent = id => {
   return {
     type: GET_EVENT,
     id,
+  };
+};
+
+
+export const getEventRequest = id => {
+  return dispatch => {
+    callApi('events', id).then(res => {
+      dispatch(getEvent(res));
+    });
   };
 };
