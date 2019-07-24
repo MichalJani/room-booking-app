@@ -56,11 +56,4 @@ const MainPage = () => {
   );
 };
 
-// const mapStateToProps = state => ({
-
-// })
-
-export default connect(
-  null,
-  { getAllEvents }
-)(MainPage);
+export default MainPage;
