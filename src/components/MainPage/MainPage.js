@@ -8,6 +8,7 @@ import StatusSection from '../StatusSection/StatusSection';
 import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickReservationButtonGroup';
 import CalendarSideBar from '../CalendarSideBar/CalendarSideBar';
 
+
 const useStyles = makeStyles(theme => ({
   statusSection: {
     flexDirection: 'column',
@@ -15,12 +16,13 @@ const useStyles = makeStyles(theme => ({
   },
   mainGrid: {
     minHeight: '100%',
+
   },
   leftColumnContainer: {
     justifyContent: 'space-between',
     flexDirection: 'column',
-    minHeight: '100%',
-  },
+    minHeight: '100%'
+  }
 }));
 
 const MainPage = () => {
