@@ -21,8 +21,9 @@ const useStyles = makeStyles(theme => ({
 const App = () => {
   useEffect(() => {
     // Client ID and API key from the Developer Console
-    var CLIENT_ID = '32474911693-6hpim9atkm4mr18cr7n6lopsllje9q84.apps.googleusercontent.com';
-    var API_KEY = ' AIzaSyC0M61rC34yFrF2FAEQLi72JvHG8cWsSQg ';
+    var CLIENT_ID =
+      'CLIENT_ID';
+    var API_KEY = 'API_KEY';
 
     // Array of API discovery doc URLs for APIs used by the quickstart
     var DISCOVERY_DOCS = [
