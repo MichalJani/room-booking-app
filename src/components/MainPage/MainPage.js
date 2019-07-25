@@ -8,7 +8,6 @@ import StatusSection from '../StatusSection/StatusSection';
 import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickReservationButtonGroup';
 import CalendarSideBar from '../CalendarSideBar/CalendarSideBar';
 
-
 const useStyles = makeStyles(theme => ({
   statusSection: {
     flexDirection: 'column',
