@@ -31,7 +31,11 @@ const QuickReservationButtonGroup = ({ buttonVariants, onClick }) => {
       aria-label="Large contained secondary button group"
     >
       {buttonVariants.map(numOfMinutes => (
+<<<<<<< HEAD
         <Button key={numOfMinutes} onClick={() => onClick(numOfMinutes)}>{numOfMinutes}</Button>
+=======
+        <Button onClick={() => quickBook(numOfMinutes)}>{numOfMinutes}</Button>
+>>>>>>> 0c43bb905757f0c1c0cd45644174aea39c7e11c1
       ))}
     </ButtonGroup>
   );
