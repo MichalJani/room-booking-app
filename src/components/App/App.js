@@ -6,7 +6,7 @@ import store from '../../store';
 import MainPage from '../MainPage/MainPage';
 import BottomAppBar from '../BottomAppBar/BottomAppBar';
 
-let gapi = {};
+const gapi = window.gapi;
 
 const useStyles = makeStyles(theme => ({
   appContainer: {
@@ -21,9 +21,9 @@ const useStyles = makeStyles(theme => ({
 const App = () => {
   useEffect(() => {
     // Client ID and API key from the Developer Console
-    var CLIENT_ID =
-      'CLIENT_ID';
-    var API_KEY = 'API_KEY';
+
+
+    // Tu wrzuc API i Client ID
 
     // Array of API discovery doc URLs for APIs used by the quickstart
     var DISCOVERY_DOCS = [
@@ -75,9 +75,10 @@ const App = () => {
     function updateSigninStatus(isSignedIn) {
       if (isSignedIn) {
         listUpcomingEvents();
-      } else {
-        handleClientLoad();
       }
+      // else {
+
+      // }
     }
 
     /**
@@ -87,9 +88,9 @@ const App = () => {
      * @param {string} message Text to be placed in pre element.
      */
     function appendPre(message) {
-      var pre = document.getElementById('content');
+      // var pre = document.getElementById('content');
       var textContent = document.createTextNode(message + '\n');
-      pre.appendChild(textContent);
+      console.log(textContent);
     }
 
     /**
@@ -125,6 +126,7 @@ const App = () => {
           }
         });
     }
+    handleClientLoad();
   }, []);
 
   const classes = useStyles();
