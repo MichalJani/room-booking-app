@@ -23,7 +23,6 @@ const App = () => {
     // Client ID and API key from the Developer Console
 
 
-    // Tu wrzuc API i Client ID
 
     // Array of API discovery doc URLs for APIs used by the quickstart
     var DISCOVERY_DOCS = [
