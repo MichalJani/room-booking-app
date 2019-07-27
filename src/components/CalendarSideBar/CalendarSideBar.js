@@ -6,14 +6,14 @@ import CalendarCard from '../CalendarCard/CalendarCard';
 
 const useStyles = makeStyles({
   list: {
-    width: 250,
-  },
+    width: 250
+  }
 });
 
 const CalendarSideBar = () => {
   const classes = useStyles();
   const [state, setState] = React.useState({
-    isOpen: false,
+    isOpen: false
   });
 
   const toggleDrawer = () => event => {

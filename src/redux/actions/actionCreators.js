@@ -38,7 +38,7 @@ export const getEventRequest = id => {
 };
 
 export const addEvent = payload => {
-  console.log(payload)
+  console.log(payload);
   return {
     type: ADD_EVENT,
     payload
@@ -46,10 +46,10 @@ export const addEvent = payload => {
 };
 
 export const addEventRequest = event => {
-  console.log(event)
+  console.log(event);
   return dispatch => {
     callApi('primary', 'POST', event).then(res => {
-      console.log(res)
+      console.log(res);
       dispatch(addEvent(res));
     });
   };

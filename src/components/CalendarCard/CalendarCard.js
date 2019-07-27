@@ -6,11 +6,11 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   card: {
-    minWidth: 275,
+    minWidth: 275
   },
   title: {
-    fontSize: 14,
-  },
+    fontSize: 14
+  }
 });
 
 const CalendarCard = () => {
