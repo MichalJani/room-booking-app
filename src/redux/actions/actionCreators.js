@@ -6,6 +6,7 @@ import {
   GET_EVENT
 } from './actionTypes';
 import callApi from './apiCaller';
+import { gapi } from '../../gapi';
 
 export const getAllEvents = payload => {
   return {
@@ -46,14 +47,42 @@ export const addEvent = payload => {
 };
 
 export const addEventRequest = event => {
-  console.log(event);
   return dispatch => {
-    callApi('primary', 'POST', event).then(res => {
-      console.log(res);
-      dispatch(addEvent(res));
-    });
-  };
+    function execute() {
+      return gapi.client.calendar.events.insert({
+        "calendarId": "primary",
+        "resource": event
+      })
+        .then(function (response) {
+          // Handle the results here (response.result has the parsed body).
+          console.log("Response", response);
+          console.log("response.result", response.result);
+          dispatch(addEvent(response.result));
+        },
+          function (err) { console.error("Execute error", err); });
+    }
+    execute();
+  }
+
+  // const insertEvent = gapi.client.calendar.events.insert({
+  //   'calendarId': 'primary',
+  //   'resource': event
+  // });
+  // return (
+
+  //   insertEvent.execute(
+  //     // console.log("TCL: event", event)
+  //   )
+  //     .then(response => {
+  //       console.log("TCL: response", response)
+  //       // dispatch(addEvent(response));
+  //     },
+  //       function (err) { console.error("Execute error", err); }
+  //     )
+  // )
+
 };
+
 
 export const updateEvent = payload => {
   return {

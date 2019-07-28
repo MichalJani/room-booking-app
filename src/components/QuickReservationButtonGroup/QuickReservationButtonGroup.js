@@ -45,7 +45,7 @@ const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
 
 QuickReservationButtonGroup.propTypes = {
   buttonVariants: PropTypes.arrayOf(PropTypes.number).isRequired,
-  onClick: PropTypes.func.isRequired
+  addEventRequest: PropTypes.func.isRequired
 };
 
 export default connect(

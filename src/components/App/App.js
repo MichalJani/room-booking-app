@@ -21,10 +21,6 @@ const App = () => {
   useEffect(() => {
     // Client ID and API key from the Developer Console
 
-    // Array of API discovery doc URLs for APIs used by the quickstart
-    var DISCOVERY_DOCS = [
-      'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'
-    ];
 
     // Authorization scopes required by the API; multiple scopes can be
     // included, separated by spaces.
@@ -50,7 +46,7 @@ const App = () => {
           scope: SCOPES
         })
         .then(
-          function() {
+          function () {
             // Listen for sign-in state changes.
             gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
@@ -58,7 +54,7 @@ const App = () => {
             updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
             gapi.auth2.getAuthInstance().signIn();
           },
-          function(error) {
+          function (error) {
             appendPre(JSON.stringify(error, null, 2));
           }
         );
@@ -104,7 +100,7 @@ const App = () => {
           maxResults: 10,
           orderBy: 'startTime'
         })
-        .then(function(response) {
+        .then(function (response) {
           var events = response.result.items;
           appendPre('Upcoming events:');
 
