@@ -7,22 +7,27 @@ import { addEventRequest } from '../../redux/actions/actionCreators';
 
 const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
   const quickBook = num => {
-    // let bookingLength = 0;
-    // let date = Date.now();
+    const startDate = new Date();
+    const startTimeMil = startDate.getTime();
+    const eventLengthMil = num * 60 * 1000;
+    const endTimeMil = startTimeMil + eventLengthMil;
+    const endDate = new Date(endTimeMil);
+
     const booking = {
       summary: 'Event1',
       location: 'Room 416',
       description: 'Conference Room booking',
       start: {
-        dateTime: '2020-01-28T09:00:00+02:00'
+        dateTime: `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDate()}T${startDate.getHours()}:${startDate.getMinutes()}:00+02:00`
       },
       end: {
-        dateTime: '2020-02-28T17:01:00+02:00'
+        dateTime: `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDate()}T${endDate.getHours()}:${endDate.getMinutes()}:00+02:00`
       },
       reminders: {
         useDefault: true
       }
     };
+    console.log("TCL: QuickReservationButtonGroup -> booking", booking)
     addEventRequest(booking);
   };
 

@@ -55,7 +55,7 @@ export const getEventRequest = id => {
 };
 
 export const addEvent = payload => {
-  console.log(payload);
+  console.log("TCL: payload", payload)
   return {
     type: ADD_EVENT,
     payload
@@ -70,7 +70,7 @@ export const addEventRequest = event => {
         "resource": event
       })
         .then(res => {
-          return dispatch(addEvent(res));
+          return dispatch(addEvent(res.result));
         })
         .catch(error => {
           return error;

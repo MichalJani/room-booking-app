@@ -5,7 +5,8 @@ import { makeStyles } from '@material-ui/styles';
 import store from '../../store';
 import MainPage from '../MainPage/MainPage';
 import BottomAppBar from '../BottomAppBar/BottomAppBar';
-import { gapi } from '../../gapi';
+import { gapi, SCOPES, DISCOVERY_DOCS } from '../../gapi';
+import { CLIENT_ID, API_KEY } from '../../config';
 
 const useStyles = makeStyles(theme => ({
   appContainer: {
@@ -19,18 +20,6 @@ const useStyles = makeStyles(theme => ({
 
 const App = () => {
   useEffect(() => {
-    // Client ID and API key from the Developer Console
-
-
-    // Array of API discovery doc URLs for APIs used by the quickstart
-    var DISCOVERY_DOCS = [
-      'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'
-    ];
-
-    // Authorization scopes required by the API; multiple scopes can be
-    // included, separated by spaces.
-    var SCOPES = 'https://www.googleapis.com/auth/calendar';
-
     /**
      *  On load, called to load the auth2 library and API client library.
      */
