@@ -9,7 +9,6 @@ const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
   const quickBook = num => {
     // let bookingLength = 0;
     // let date = Date.now();
-    console.log(num);
     const booking = {
       summary: 'Event1',
       location: 'Room 416',

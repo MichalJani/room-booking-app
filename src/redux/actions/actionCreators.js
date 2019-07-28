@@ -5,7 +5,6 @@ import {
   CANCEL_EVENT,
   GET_EVENT
 } from './actionTypes';
-// import callApi from './apiCaller';
 import { gapi } from '../../gapi';
 
 export const getAllEvents = payload => {
@@ -17,7 +16,7 @@ export const getAllEvents = payload => {
 
 export const getAllEventsRequest = () => {
   return dispatch => {
-    function callApi() {
+    (() => {
       return gapi.client.calendar.events.list({
         "calendarId": "primary"
       })
@@ -27,8 +26,7 @@ export const getAllEventsRequest = () => {
         .catch(error => {
           return error;
         });
-    }
-    callApi();
+    })();
   };
 };
 
@@ -41,7 +39,7 @@ export const getEvent = payload => {
 
 export const getEventRequest = id => {
   return dispatch => {
-    function callApi() {
+    (() => {
       return gapi.client.calendar.events.get({
         "calendarId": "primary",
         "eventId": id
@@ -52,8 +50,7 @@ export const getEventRequest = id => {
         .catch(error => {
           return error;
         });
-    }
-    callApi();
+    })();
   };
 };
 
@@ -67,7 +64,7 @@ export const addEvent = payload => {
 
 export const addEventRequest = event => {
   return dispatch => {
-    function callApi() {
+    (() => {
       return gapi.client.calendar.events.insert({
         "calendarId": "primary",
         "resource": event
@@ -78,10 +75,9 @@ export const addEventRequest = event => {
         .catch(error => {
           return error;
         });
-    }
-    callApi();
-  }
-}
+    })();
+  };
+};
 
 export const updateEvent = payload => {
   return {
@@ -92,7 +88,7 @@ export const updateEvent = payload => {
 
 export const updateEventRequest = (event, id) => {
   return dispatch => {
-    function callApi() {
+    (() => {
       return gapi.client.calendar.events.update({
         "calendarId": "primary",
         "eventId": id,
@@ -104,8 +100,7 @@ export const updateEventRequest = (event, id) => {
         .catch(error => {
           return error;
         });
-    }
-    callApi();
+    })();
   };
 };
 
@@ -118,7 +113,7 @@ export const cancelEvent = payload => {
 
 export const cancelEventRequest = id => {
   return dispatch => {
-    function callApi() {
+    (() => {
       return gapi.client.calendar.events.delete({
         "calendarId": "primary",
         "eventId": id
@@ -129,7 +124,6 @@ export const cancelEventRequest = id => {
         .catch(error => {
           return error;
         });
-    }
-    callApi();
+    })();
   };
 };
