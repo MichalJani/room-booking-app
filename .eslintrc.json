@@ -48,6 +48,6 @@
         "named": "always",
         "asyncArrow": "always"
       }
-    ],
+    ]
   }
 }

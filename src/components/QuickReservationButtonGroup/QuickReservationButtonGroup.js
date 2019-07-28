@@ -9,7 +9,7 @@ const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
   const quickBook = num => {
     // let bookingLength = 0;
     // let date = Date.now();
-    console.log(num)
+    console.log(num);
     const booking = {
       summary: 'Event1',
       location: 'Room 416',
@@ -35,7 +35,9 @@ const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
       aria-label="Large contained secondary button group"
     >
       {buttonVariants.map(numOfMinutes => (
-        <Button key={numOfMinutes} onClick={() => quickBook(numOfMinutes)}>{numOfMinutes}</Button>
+        <Button key={numOfMinutes} onClick={() => quickBook(numOfMinutes)}>
+          {numOfMinutes}
+        </Button>
       ))}
     </ButtonGroup>
   );
@@ -46,4 +48,7 @@ QuickReservationButtonGroup.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-export default connect(null, { addEventRequest })(QuickReservationButtonGroup);
+export default connect(
+  null,
+  { addEventRequest }
+)(QuickReservationButtonGroup);
