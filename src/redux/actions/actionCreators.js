@@ -5,7 +5,7 @@ import {
   CANCEL_EVENT,
   GET_EVENT
 } from './actionTypes';
-import callApi from './apiCaller';
+// import callApi from './apiCaller';
 import { gapi } from '../../gapi';
 
 export const getAllEvents = payload => {
@@ -17,9 +17,18 @@ export const getAllEvents = payload => {
 
 export const getAllEventsRequest = () => {
   return dispatch => {
-    callApi('events').then(res => {
-      dispatch(getAllEvents(res));
-    });
+    function callApi() {
+      return gapi.client.calendar.events.list({
+        "calendarId": "primary"
+      })
+        .then(res => {
+          return dispatch(getAllEvents(res));
+        })
+        .catch(error => {
+          return error;
+        });
+    }
+    callApi();
   };
 };
 
@@ -32,9 +41,19 @@ export const getEvent = payload => {
 
 export const getEventRequest = id => {
   return dispatch => {
-    callApi(`events/${id}`).then(res => {
-      dispatch(getEvent(res));
-    });
+    function callApi() {
+      return gapi.client.calendar.events.get({
+        "calendarId": "primary",
+        "eventId": id
+      })
+        .then(res => {
+          return dispatch(getEvent(res));
+        })
+        .catch(error => {
+          return error;
+        });
+    }
+    callApi();
   };
 };
 
@@ -48,41 +67,21 @@ export const addEvent = payload => {
 
 export const addEventRequest = event => {
   return dispatch => {
-    function execute() {
+    function callApi() {
       return gapi.client.calendar.events.insert({
         "calendarId": "primary",
         "resource": event
       })
-        .then(function (response) {
-          // Handle the results here (response.result has the parsed body).
-          console.log("Response", response);
-          console.log("response.result", response.result);
-          dispatch(addEvent(response.result));
-        },
-          function (err) { console.error("Execute error", err); });
+        .then(res => {
+          return dispatch(addEvent(res));
+        })
+        .catch(error => {
+          return error;
+        });
     }
-    execute();
+    callApi();
   }
-
-  // const insertEvent = gapi.client.calendar.events.insert({
-  //   'calendarId': 'primary',
-  //   'resource': event
-  // });
-  // return (
-
-  //   insertEvent.execute(
-  //     // console.log("TCL: event", event)
-  //   )
-  //     .then(response => {
-  //       console.log("TCL: response", response)
-  //       // dispatch(addEvent(response));
-  //     },
-  //       function (err) { console.error("Execute error", err); }
-  //     )
-  // )
-
-};
-
+}
 
 export const updateEvent = payload => {
   return {
@@ -91,11 +90,22 @@ export const updateEvent = payload => {
   };
 };
 
-export const updateEventRequest = event => {
+export const updateEventRequest = (event, id) => {
   return dispatch => {
-    callApi('events', 'POST', event).then(res => {
-      dispatch(updateEvent(res));
-    });
+    function callApi() {
+      return gapi.client.calendar.events.update({
+        "calendarId": "primary",
+        "eventId": id,
+        "resource": event
+      })
+        .then(res => {
+          return dispatch(updateEvent(res));
+        })
+        .catch(error => {
+          return error;
+        });
+    }
+    callApi();
   };
 };
 
@@ -108,8 +118,18 @@ export const cancelEvent = payload => {
 
 export const cancelEventRequest = id => {
   return dispatch => {
-    callApi(`events/${id}`, 'DELETE').then(res => {
-      dispatch(cancelEvent(res));
-    });
+    function callApi() {
+      return gapi.client.calendar.events.delete({
+        "calendarId": "primary",
+        "eventId": id
+      })
+        .then(res => {
+          return dispatch(cancelEvent(res));
+        })
+        .catch(error => {
+          return error;
+        });
+    }
+    callApi();
   };
 };
