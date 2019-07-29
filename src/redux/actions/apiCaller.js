@@ -1,3 +1,4 @@
+import { gapi } from '../../gapi';
 
 const callApi = (command, body = {}) => {
   return gapi.client.calendar.events[command]({

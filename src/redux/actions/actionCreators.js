@@ -16,12 +16,12 @@ export const getAllEvents = payload => {
 };
 
 export const getAllEventsRequest = () => {
-  return dispatch => {
+  return (dispatch) => {
     callApi('list')
       .then((res) => {
-        dispatch(getAllEvent(res));
+        dispatch(getAllEvents(res));
     });
-  };
+  }
 }
 
 export const getEvent = payload => {
@@ -32,11 +32,12 @@ export const getEvent = payload => {
 };
 
 export const getEventRequest = id => {
-return dispatch => {
+return (dispatch) => {
   callApi('get', { "eventId": id })
     .then((res) => {
       dispatch(getEvent(res));
     });
+};
 };
 // return dispatch => {
   //   (() => {
@@ -52,7 +53,7 @@ return dispatch => {
   //       });
   //   })();
   // };
-};
+
 
 export const addEvent = payload => {
   console.log("TCL: payload", payload)
@@ -63,14 +64,14 @@ export const addEvent = payload => {
 };
 
 export const addEventRequest = event => {
-  return dispatch => {
+  return(dispatch)=> {
   callApi('insert', { "resource": event })
     .then((res) => {
       console.log(res)
       dispatch(getEvent(res.result));
     });
 };
-/ return dispatch => {
+//  return dispatch => {
   //   (() => {
   //     return gapi.client.calendar.events.insert({
   //       "calendarId": "primary",
