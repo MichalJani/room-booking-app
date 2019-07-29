@@ -19,7 +19,7 @@ export const getAllEventsRequest = () => {
   return dispatch => {
     callApi('list')
       .then((res) => {
-        dispatch(ge t Al lE v ents(res));
+        dispatch(getAllEvent(res));
     });
   };
 }
@@ -32,20 +32,26 @@ export const getEvent = payload => {
 };
 
 export const getEventRequest = id => {
-  return dispatch => {
-    (() => {
-      return gapi.client.calendar.events.get({
-        "calendarId": "primary",
-        "eventId": id
-      })
-        .then(res => {
-          return dispatch(getEvent(res));
-        })
-        .catch(error => {
-          return error;
-        });
-    })();
-  };
+return dispatch => {
+  callApi('get', { "eventId": id })
+    .then((res) => {
+      dispatch(getEvent(res));
+    });
+};
+// return dispatch => {
+  //   (() => {
+  //     return gapi.client.calendar.events.get({
+  //       "calendarId": "primary",
+  //       "eventId": id
+  //     })
+  //       .then(res => {
+  //         return dispatch(getEvent(res));
+  //       })
+  //       .catch(error => {
+  //         return error;
+  //       });
+  //   })();
+  // };
 };
 
 export const addEvent = payload => {
@@ -58,19 +64,26 @@ export const addEvent = payload => {
 
 export const addEventRequest = event => {
   return dispatch => {
-    (() => {
-      return gapi.client.calendar.events.insert({
-        "calendarId": "primary",
-        "resource": event
-      })
-        .then(res => {
-          return dispatch(addEvent(res.result));
-        })
-        .catch(erro r  = >  { 
-          return error;
-        });
-    })();
-  };
+  callApi('insert', { "resource": event })
+    .then((res) => {
+      console.log(res)
+      dispatch(getEvent(res.result));
+    });
+};
+/ return dispatch => {
+  //   (() => {
+  //     return gapi.client.calendar.events.insert({
+  //       "calendarId": "primary",
+  //       "resource": event
+  //     })
+  //       .then(res => {
+  //         return dispatch(addEvent(res.result));
+  //       })
+  //       .catch(erro r  = >  { 
+  //         return error;
+  //       });
+  //   })();
+  // };
 };
 
 export const updateEvent = payload => {
