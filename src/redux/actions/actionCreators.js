@@ -6,6 +6,7 @@ import {
   GET_EVENT
 } from './actionTypes';
 import { gapi } from '../../gapi';
+import callApi from './apiCaller';
 
 export const getAllEvents = payload => {
   return {
@@ -16,19 +17,12 @@ export const getAllEvents = payload => {
 
 export const getAllEventsRequest = () => {
   return dispatch => {
-    (() => {
-      return gapi.client.calendar.events.list({
-        "calendarId": "primary"
-      })
-        .then(res => {
-          return dispatch(getAllEvents(res));
-        })
-        .catch(error => {
-          return error;
-        });
-    })();
+    callApi('list')
+      .then((res) => {
+        dispatch(ge t Al lE v ents(res));
+    });
   };
-};
+}
 
 export const getEvent = payload => {
   return {
@@ -72,7 +66,7 @@ export const addEventRequest = event => {
         .then(res => {
           return dispatch(addEvent(res.result));
         })
-        .catch(error => {
+        .catch(erro r  = >  { 
           return error;
         });
     })();
