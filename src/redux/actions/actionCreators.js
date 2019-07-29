@@ -19,7 +19,11 @@ export const getAllEventsRequest = () =>
     callApi('list')
       .then((res) => {
         dispatch(getAllEvents(res));
-      });
+      })
+      .catch((err) => {
+        console.log(err)
+        // dispatch(err)
+      })
   };
 
 export const getEvent = payload => {
@@ -55,7 +59,11 @@ export const addEventRequest = event => dispatch => {
     .then((res) => {
       console.log(res)
       dispatch(getEvent(res.result));
-    });
+    })
+    .catch((err) => {
+      console.log(err)
+      // dispatch(err)
+    })
 };
 
 export const updateEvent = payload => {
@@ -72,7 +80,11 @@ export const updateEventRequest = (event, id) => dispatch => {
   })
     .then((res) => {
       dispatch(updateEvent(res.result));
-    });
+    })
+    .catch((err) => {
+      console.log(err)
+      // dispatch(err)
+    })
 };
 
 export const cancelEvent = payload => {
