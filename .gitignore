@@ -25,4 +25,7 @@ yarn-error.log*
 # functions
 /functions
 
+<<<<<<< HEAD
 src/config.json
+=======
+>>>>>>> 4eb6ac9... Update packages
