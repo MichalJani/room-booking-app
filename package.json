@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test",
     "lint": "eslint . --ext .js --fix"
   },
   "eslintConfig": {
@@ -38,6 +38,9 @@
     ]
   },
   "devDependencies": {
+    "babel-jest": "^24.8.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
@@ -50,12 +53,6 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "jest": "^24.7.1",
-    "prettier": "^1.18.2",
-    "react-test-renderer": "^16.8.6"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>src/setupTests.js"
-    ]
+    "prettier": "^1.18.2"
   }
 }

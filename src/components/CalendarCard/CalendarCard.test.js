@@ -1,13 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App';
+import CalendarCard from './CalendarCard';
 
 
-describe('App', () => {
+describe('CalendarCard', () => {
   it('Should render without crashing',
     () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<CalendarCard />);
       expect(wrapper).toBeTruthy();
     });
 });
-

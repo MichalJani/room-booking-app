@@ -1,13 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App';
+import StatusSection from './StatusSection';
 
 
-describe('App', () => {
+describe('StatusSection', () => {
   it('Should render without crashing',
     () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<StatusSection />);
       expect(wrapper).toBeTruthy();
     });
 });
-

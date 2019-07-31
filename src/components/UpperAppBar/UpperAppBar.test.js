@@ -1,13 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App';
+import UpperAppBar from './UpperAppBar';
 
 
-describe('App', () => {
+describe('UpperAppBar', () => {
   it('Should render without crashing',
     () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<UpperAppBar />);
       expect(wrapper).toBeTruthy();
     });
 });
-

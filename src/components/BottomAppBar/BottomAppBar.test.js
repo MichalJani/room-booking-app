@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App';
+import BottomAppBar from './BottomAppBar';
 
 
-describe('App', () => {
+describe('BottomAppBar', () => {
   it('Should render without crashing',
     () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<BottomAppBar />);
       expect(wrapper).toBeTruthy();
     });
 });
