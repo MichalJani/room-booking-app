@@ -3,7 +3,8 @@ import {
   GET_ALL_EVENTS,
   UPDATE_EVENT,
   CANCEL_EVENT,
-  GET_EVENT
+  GET_EVENT,
+  CHANGE_ROOM_STATUS
 } from './actionTypes';
 import callApi from './apiCaller';
 
@@ -14,17 +15,16 @@ export const getAllEvents = payload => {
   };
 };
 
-export const getAllEventsRequest = () =>
-  dispatch => {
-    callApi('list')
-      .then((res) => {
-        dispatch(getAllEvents(res));
-      })
-      .catch((err) => {
-        console.log(err)
-        // dispatch(err)
-      })
-  };
+export const getAllEventsRequest = () => dispatch => {
+  callApi('list')
+    .then(res => {
+      dispatch(getAllEvents(res));
+    })
+    .catch(err => {
+      console.log(err);
+      // dispatch(err)
+    });
+};
 
 export const getEvent = payload => {
   return {
@@ -33,21 +33,19 @@ export const getEvent = payload => {
   };
 };
 
-export const getEventRequest = id =>
-  dispatch => {
-    callApi('get',
-      { "eventId": id })
-      .then((res) => {
-        dispatch(getEvent(res));
-      })
-      .catch((err) => {
-        console.log(err)
-        // dispatch(err)
-      });
-  };
+export const getEventRequest = id => dispatch => {
+  callApi('get', { eventId: id })
+    .then(res => {
+      dispatch(getEvent(res));
+    })
+    .catch(err => {
+      console.log(err);
+      // dispatch(err)
+    });
+};
 
 export const addEvent = payload => {
-  console.log("TCL: payload", payload)
+  console.log('TCL: payload', payload);
   return {
     type: ADD_EVENT,
     payload
@@ -55,15 +53,15 @@ export const addEvent = payload => {
 };
 
 export const addEventRequest = event => dispatch => {
-  callApi('insert', { "resource": event })
-    .then((res) => {
-      console.log(res)
+  callApi('insert', { resource: event })
+    .then(res => {
+      console.log(res);
       dispatch(getEvent(res.result));
     })
-    .catch((err) => {
-      console.log(err)
+    .catch(err => {
+      console.log(err);
       // dispatch(err)
-    })
+    });
 };
 
 export const updateEvent = payload => {
@@ -75,16 +73,16 @@ export const updateEvent = payload => {
 
 export const updateEventRequest = (event, id) => dispatch => {
   callApi('update', {
-    "eventId": id,
-    "resource": event
+    eventId: id,
+    resource: event
   })
-    .then((res) => {
+    .then(res => {
       dispatch(updateEvent(res.result));
     })
-    .catch((err) => {
-      console.log(err)
+    .catch(err => {
+      console.log(err);
       // dispatch(err)
-    })
+    });
 };
 
 export const cancelEvent = payload => {
@@ -94,15 +92,20 @@ export const cancelEvent = payload => {
   };
 };
 
-export const cancelEventRequest = id =>
-  dispatch => {
-    callApi('delete',
-      { "eventId": id })
-      .then((res) => {
-        dispatch(cancelEvent(res));
-      })
-      .catch((err) => {
-        console.log(err)
-        // dispatch(err)
-      })
-  }
+export const cancelEventRequest = id => dispatch => {
+  callApi('delete', { eventId: id })
+    .then(res => {
+      dispatch(cancelEvent(res));
+    })
+    .catch(err => {
+      console.log(err);
+      // dispatch(err)
+    });
+};
+
+export const changeRoomStatus = status => {
+  return {
+    type: CHANGE_ROOM_STATUS,
+    payload: status
+  };
+};
