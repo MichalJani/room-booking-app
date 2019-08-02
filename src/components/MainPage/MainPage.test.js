@@ -17,4 +17,5 @@ describe('MainPage', () => {
       expect(logo.length).toBe(1);
     });
 
+
 });

@@ -12,7 +12,7 @@ describe('CalendarSideBar', () => {
 
   it('Should set Drawer state to true on click', () => {
     const wrapper = shallow(<CalendarSideBar />);
-    wrapper.find('Button').at(0).simulate('click');
+    wrapper.find('[data-test="CalSideBarButton"]').simulate('click');
     expect(wrapper.state('isOpen')).toEqual(true);
     // wrapper.unmount();
   });

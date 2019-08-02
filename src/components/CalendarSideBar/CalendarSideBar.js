@@ -40,7 +40,12 @@ const CalendarSideBar = () => {
 
   return (
     <div>
-      <Button onClick={toggleDrawer()}>Open Calendar</Button>
+      <Button
+        onClick={toggleDrawer()}
+        data-test="CalSideBarButton"
+      >
+        Open Calendar
+        </Button>
       <SwipeableDrawer
         anchor="right"
         open={state.isOpen}
