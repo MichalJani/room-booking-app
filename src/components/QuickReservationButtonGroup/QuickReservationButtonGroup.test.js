@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import QuickReservationButtonGroup from './QuickReservationButtonGroup';
+import { QuickReservationButtonGroup } from './QuickReservationButtonGroup';
 
 
 describe('QuickReservationButtonGroup', () => {
   it('Should render without crashing',
     () => {
-      const wrapper = shallow(<QuickReservationButtonGroup />);
+      const wrapper = shallow(<QuickReservationButtonGroup buttonVariants={[]} addEventRequest={jest.fn()} />);
       expect(wrapper).toBeTruthy();
     });
 

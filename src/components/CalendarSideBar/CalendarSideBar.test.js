@@ -3,16 +3,17 @@ import { shallow, mount } from 'enzyme';
 import CalendarSideBar from './CalendarSideBar';
 
 
-describe('CalendarSideBar', () => {
+fdescribe('CalendarSideBar', () => {
   it('Should render without crashing',
     () => {
       const wrapper = shallow(<CalendarSideBar />);
       expect(wrapper).toBeTruthy();
     });
 
-  it('Should set Drawer state to true on click', () => {
-    const wrapper = shallow(<CalendarSideBar />);
-    wrapper.find('[data-test="CalSideBarButton"]').simulate('click');
+  fit('Should set Drawer state to true on click', () => {
+    const wrapper = mount(<CalendarSideBar />);
+    const variable = wrapper.find('[data-test="CalSideBarButton"]')
+    console.log(variable)
     expect(wrapper.state('isOpen')).toEqual(true);
     // wrapper.unmount();
   });
