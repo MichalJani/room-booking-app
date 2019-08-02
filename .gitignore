@@ -25,4 +25,4 @@ yarn-error.log*
 # functions
 /functions
 
-src/config.json
+src/config.js
