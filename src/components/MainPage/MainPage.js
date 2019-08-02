@@ -7,16 +7,15 @@ import Logo from '../Logo/Logo';
 import StatusSection from '../StatusSection/StatusSection';
 import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickReservationButtonGroup';
 import CalendarSideBar from '../CalendarSideBar/CalendarSideBar';
-
+import dummyData from '../../dummyData/dummyData';
 
 const useStyles = makeStyles(theme => ({
   statusSection: {
     flexDirection: 'column',
-    justifySelf: 'center',
+    justifySelf: 'center'
   },
   mainGrid: {
-    minHeight: '100%',
-
+    minHeight: '100%'
   },
   leftColumnContainer: {
     justifyContent: 'space-between',
@@ -50,7 +49,7 @@ const MainPage = () => {
           </Grid>
         </Grid>
         <Grid item xs={4}>
-          <CalendarSideBar />
+          <CalendarSideBar events={dummyData} />
         </Grid>
       </Grid>
     </Container>
