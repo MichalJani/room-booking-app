@@ -32,7 +32,7 @@ const mapStateToProps = state => {
 };
 
 StatusSection.propTypes = {
-  status: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 };
 
