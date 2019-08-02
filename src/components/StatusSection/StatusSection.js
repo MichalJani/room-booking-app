@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -9,23 +10,30 @@ const useStyles = makeStyles(theme => ({
     margin: 0
   }
 }));
-const StatusSection = ({ status, roomName }) => {
+const StatusSection = ({ state, name }) => {
   const classes = useStyles();
   return (
     <Container maxWidth="false" className={classes.container}>
       <Typography variant="h4" component="h4">
-        {status}
+        {state}
       </Typography>
       <Typography variant="h3" component="h3">
-        {roomName}
+        {name}
       </Typography>
     </Container>
   );
 };
 
-StatusSection.propTypes = {
-  status: PropTypes.string.isRequired,
-  roomName: PropTypes.string.isRequired
+const mapStateToProps = state => {
+  return {
+    state: state.roomInfo.state,
+    name: state.roomInfo.name
+  };
 };
 
-export default StatusSection;
+StatusSection.propTypes = {
+  status: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+};
+
+export default connect(mapStateToProps)(StatusSection);
