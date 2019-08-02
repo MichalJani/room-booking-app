@@ -53,14 +53,11 @@ const MainPage = ({ roomState }) => {
               <Logo src={logo} alt="Logo" />
             </Grid>
             <Grid item container className={classes.statusSection}>
-              <Grid item>
+              <Grid item mb={50}>
                 <StatusSection />
               </Grid>
               <Grid item mt={50}>
-                <QuickReservationButtonGroup
-                  buttonVariants={[15, 30, 45, 60, 90]}
-                  onClick={() => null}
-                />
+                <QuickReservationButtonGroup onClick={() => null} />
               </Grid>
             </Grid>
             <Grid item />

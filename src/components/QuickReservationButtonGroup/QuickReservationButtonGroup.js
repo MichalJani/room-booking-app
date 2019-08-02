@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { connect } from 'react-redux';
 import { addEventRequest } from '../../redux/actions/actionCreators';
+import { timeVariants } from '../../utils/consts';
 
 const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
   const quickBook = num => {
@@ -27,7 +28,7 @@ const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
         useDefault: true
       }
     };
-    console.log("TCL: QuickReservationButtonGroup -> booking", booking)
+    console.log('TCL: QuickReservationButtonGroup -> booking', booking);
     addEventRequest(booking);
   };
 
@@ -40,7 +41,7 @@ const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
     >
       {buttonVariants.map(numOfMinutes => (
         <Button key={numOfMinutes} onClick={() => quickBook(numOfMinutes)}>
-          {numOfMinutes}
+          {timeVariants[numOfMinutes]}
         </Button>
       ))}
     </ButtonGroup>
@@ -52,7 +53,13 @@ QuickReservationButtonGroup.propTypes = {
   addEventRequest: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({ buttonVariants: state.timeVariants });
+
+const mapDispatchToProps = dispatch => ({
+  onClick: event => dispatch(() => event)
+});
+
 export default connect(
-  null,
-  { addEventRequest }
+  mapStateToProps,
+  mapDispatchToProps
 )(QuickReservationButtonGroup);
