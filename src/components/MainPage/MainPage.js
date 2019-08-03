@@ -13,6 +13,13 @@ import { roomStates } from '../../utils/consts';
 import AppBackground from '../../assets/main-page-background.jpg';
 
 const useStyles = makeStyles(theme => ({
+  mainPageContainer: {
+    minHeight: '100vh',
+    minWidth: '100%',
+    display: 'flex',
+    margin: 0,
+    padding: 0
+  },
   statusSection: {
     flexDirection: 'column',
     justifySelf: 'center'
@@ -31,42 +38,47 @@ const useStyles = makeStyles(theme => ({
   },
   roomFree: {
     background: `linear-gradient(rgba(0, 255, 0, 0.45), rgba(0, 255, 0, 0.45)), url(${AppBackground}) no-repeat center center fixed`
+  },
+  marginTop: {
+    marginTop: '50px'
   }
 }));
 
 const resolveClasses = (roomState, classes) => {
   console.log(`State = ${roomState},`);
   if (roomState === roomStates.OCCUPIED) {
-    return `${classes.appContainer} ${classes.roomOccupied}`;
+    return `${classes.mainPageContainer} ${classes.roomOccupied}`;
   }
-  return `${classes.appContainer} ${classes.roomFree}`;
+  return `${classes.mainPageContainer} ${classes.roomFree}`;
 };
 
 const MainPage = ({ roomState }) => {
   const classes = useStyles();
   return (
-    <Container className={resolveClasses(roomState, classes)} maxWidth="lg">
-      <Grid container spacing={0} className={classes.mainGrid}>
-        <Grid item xs={8} className={classes.leftColumn}>
-          <Grid container className={classes.leftColumnContainer}>
-            <Grid item>
-              <Logo src={logo} alt="Logo" />
-            </Grid>
-            <Grid item container className={classes.statusSection}>
-              <Grid item mb={50}>
-                <StatusSection />
+    <Container className={resolveClasses(roomState, classes)} maxWidth={false}>
+      <Container maxWidth="xl">
+        <Grid container spacing={0} className={classes.mainGrid}>
+          <Grid item xs={8} className={classes.leftColumn}>
+            <Grid container className={classes.leftColumnContainer}>
+              <Grid item>
+                <Logo src={logo} alt="Logo" />
               </Grid>
-              <Grid item mt={50}>
-                <QuickReservationButtonGroup onClick={() => null} />
+              <Grid item container className={classes.statusSection}>
+                <Grid item className={classes.marginTop}>
+                  <StatusSection />
+                </Grid>
+                <Grid item className={classes.marginTop}>
+                  <QuickReservationButtonGroup />
+                </Grid>
               </Grid>
+              <Grid item />
             </Grid>
-            <Grid item />
+          </Grid>
+          <Grid item xs={4}>
+            <CalendarSideBar />
           </Grid>
         </Grid>
-        <Grid item xs={4}>
-          <CalendarSideBar />
-        </Grid>
-      </Grid>
+      </Container>
     </Container>
   );
 };

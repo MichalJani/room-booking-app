@@ -8,16 +8,26 @@ const useStyles = makeStyles(theme => ({
   container: {
     padding: 0,
     margin: 0
+  },
+  bold: {
+    fontWeight: 700
+  },
+  marginTop: {
+    marginTop: '20px'
   }
 }));
 const StatusSection = ({ state, name }) => {
   const classes = useStyles();
   return (
     <Container maxWidth="false" className={classes.container}>
-      <Typography variant="h4" component="h4">
+      <Typography variant="h3" component="h3">
         {state}
       </Typography>
-      <Typography variant="h3" component="h3">
+      <Typography
+        variant="h2"
+        component="h2"
+        className={`${classes.bold} ${classes.marginTop}`}
+      >
         {name}
       </Typography>
     </Container>
