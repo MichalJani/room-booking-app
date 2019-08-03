@@ -42,13 +42,25 @@ const CalendarSideBar = ({ drawerOpen, onClick }) => {
         onClose={() => onClick(drawerOpen)}
         onOpen={() => onClick(drawerOpen)}
       >
-        {sideList()}
+        {sideList(events)}
       </SwipeableDrawer>
     </div>
   );
 };
 
 CalendarSideBar.propTypes = {
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string.isRequired,
+      location: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      etag: PropTypes.string.isRequired,
+      start: PropTypes.shape({
+        dateTime: PropTypes.string,
+        timeZone: PropTypes.string
+      }).isRequired
+    })
+  ),
   drawerOpen: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 };
@@ -67,3 +79,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CalendarSideBar);
+
+
+export default CalendarSideBar;
