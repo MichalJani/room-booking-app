@@ -4,7 +4,8 @@ import {
   UPDATE_EVENT,
   CANCEL_EVENT,
   GET_EVENT,
-  CHANGE_ROOM_STATUS
+  CHANGE_ROOM_STATUS,
+  CHANGE_DRAWER_STATE
 } from './actionTypes';
 import callApi from './apiCaller';
 
@@ -103,9 +104,16 @@ export const cancelEventRequest = id => dispatch => {
     });
 };
 
-export const changeRoomStatus = status => {
+export const changeRoomState = state => {
   return {
     type: CHANGE_ROOM_STATUS,
-    payload: status
+    payload: state
+  };
+};
+
+export const changeDrawerState = state => {
+  return {
+    type: CHANGE_DRAWER_STATE,
+    payload: state
   };
 };
