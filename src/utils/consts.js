@@ -1,6 +1,6 @@
 export const roomStates = {
-  OCCUPIED: 'OCCUPIED',
-  AVALIBLE: 'AVALIBLE'
+  OCCUPIED: 'Occupied',
+  AVAILABLE: 'Available'
 };
 
 export const timeVariants = {

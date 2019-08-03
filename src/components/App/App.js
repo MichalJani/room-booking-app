@@ -12,9 +12,9 @@ const useStyles = makeStyles(theme => ({
   appContainer: {
     minHeight: '100vh',
     minWidth: '100%',
+    display: 'flex',
     margin: 0,
-    padding: 0,
-    display: 'flex'
+    padding: 0
   }
 }));
 
@@ -23,7 +23,7 @@ const App = () => {
     /**
      *  On load, called to load the auth2 library and API client library.
      */
-    function handleClientLoad () {
+    function handleClientLoad() {
       gapi.load('client:auth2', initClient);
     }
 
@@ -31,7 +31,7 @@ const App = () => {
      *  Initializes the API client library and sets up sign-in state
      *  listeners.
      */
-    function initClient () {
+    function initClient() {
       gapi.client
         .init({
           apiKey: API_KEY,
@@ -40,7 +40,7 @@ const App = () => {
           scope: SCOPES
         })
         .then(
-          function() {
+          function () {
             // Listen for sign-in state changes.
             gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
@@ -48,7 +48,7 @@ const App = () => {
             updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
             gapi.auth2.getAuthInstance().signIn();
           },
-          function(error) {
+          function (error) {
             appendPre(JSON.stringify(error, null, 2));
           }
         );
@@ -58,7 +58,7 @@ const App = () => {
      *  Called when the signed in status changes, to update the UI
      *  appropriately. After a sign-in, the API is called.
      */
-    function updateSigninStatus (isSignedIn) {
+    function updateSigninStatus(isSignedIn) {
       if (isSignedIn) {
         listUpcomingEvents();
       }
@@ -73,7 +73,7 @@ const App = () => {
      *
      * @param {string} message Text to be placed in pre element.
      */
-    function appendPre (message) {
+    function appendPre(message) {
       // var pre = document.getElementById('content');
       var textContent = document.createTextNode(message + '\n');
       console.log(textContent);
@@ -84,7 +84,7 @@ const App = () => {
      * the authorized user's calendar. If no events are found an
      * appropriate message is printed.
      */
-    function listUpcomingEvents () {
+    function listUpcomingEvents() {
       gapi.client.calendar.events
         .list({
           calendarId: 'primary',
@@ -94,7 +94,7 @@ const App = () => {
           maxResults: 10,
           orderBy: 'startTime'
         })
-        .then(function(response) {
+        .then(function (response) {
           var events = response.result.items;
           appendPre('Upcoming events:');
 

@@ -3,7 +3,7 @@ import { roomStates } from '../../utils/consts';
 
 const initialState = {
   name: 'Room 407',
-  state: roomStates.AVALIBLE
+  state: roomStates.AVAILABLE
 };
 
 const roomInfoReducer = (state = initialState, action) => {
