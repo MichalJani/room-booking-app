@@ -2,7 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import CalendarCard from '../CalendarCard/CalendarCard';
+import { changeDrawerState } from '../../redux/actions/actionCreators';
 
 const useStyles = makeStyles({
   list: {
@@ -10,23 +13,15 @@ const useStyles = makeStyles({
   }
 });
 
-const CalendarSideBar = () => {
+const CalendarSideBar = ({ drawerOpen, onClick }) => {
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    isOpen: false
-  });
-
-  const toggleDrawer = () => event => {
-    const openState = !state.isOpen;
-    setState({ ...state, isOpen: openState });
-  };
 
   const sideList = () => (
     <div
       className={classes.list}
       role="presentation"
-      onClick={toggleDrawer()}
-      onKeyDown={toggleDrawer()}
+      onClick={() => onClick(drawerOpen)}
+      onKeyDown={() => onClick(drawerOpen)}
     >
       <CalendarCard />
 
@@ -40,12 +35,12 @@ const CalendarSideBar = () => {
 
   return (
     <div>
-      <Button onClick={toggleDrawer()}>Open Calendar</Button>
+      <Button onClick={() => onClick(drawerOpen)}>Open Calendar</Button>
       <SwipeableDrawer
         anchor="right"
-        open={state.isOpen}
-        onClose={toggleDrawer()}
-        onOpen={toggleDrawer()}
+        open={drawerOpen}
+        onClose={() => onClick(drawerOpen)}
+        onOpen={() => onClick(drawerOpen)}
       >
         {sideList()}
       </SwipeableDrawer>
@@ -53,4 +48,22 @@ const CalendarSideBar = () => {
   );
 };
 
-export default CalendarSideBar;
+CalendarSideBar.propTypes = {
+  drawerOpen: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => {
+  return { drawerOpen: state.drawerOpen };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onClick: drawerOpen => dispatch(changeDrawerState(!drawerOpen))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CalendarSideBar);
