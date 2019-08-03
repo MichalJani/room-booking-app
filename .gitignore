@@ -25,4 +25,5 @@ yarn-error.log*
 # functions
 /functions
 
+src/config.js
 
