@@ -1,54 +1,60 @@
 import {
-  ADD_EVENT,
-  GET_ALL_EVENTS,
-  UPDATE_EVENT,
-  CANCEL_EVENT,
-  GET_EVENT
-} from '../actions/actionTypes';
+  GET_ALL_EVENTS_ERROR,
+  GET_ALL_EVENTS_START,
+  GET_ALL_EVENTS_FINISH
+} from '../actions/actionTypes'
+import { eventStates } from '../../utils/consts'
 
 const initialState = {
-  eventList: []
-};
+  eventsState: eventStates.LOADED,
+  data: []
+}
 
 const eventReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ALL_EVENTS:
+    case GET_ALL_EVENTS_START:
       return {
         ...state,
-        eventList: action.payload
-      };
+        eventsState: eventStates.FETCHING
+      }
+    case GET_ALL_EVENTS_FINISH:
+      return {
+        ...state,
+        eventsState: eventStates.LOADED,
+        data: action.payload
+      }
 
-    case ADD_EVENT:
-      return {
-        ...state,
-        eventList: [action.payload, ...state.eventList]
-      };
+      // case ADD_EVENT:
+      //   return {
+      //     ...state,
+      //     data: [action.payload, ...state.eventList]
+      //   }
 
-    case GET_EVENT:
-      return {
-        ...state,
-        event: action.payload
-      };
+      // case GET_EVENT:
+      //   return {
+      //     ...state,
+      //     event: action.payload
+      //   }
 
-    case UPDATE_EVENT:
-      const filterList = state.eventList.filter(
-        event => event.id !== action.payload.id
-      );
-      const newList = [action.payload, filterList];
-      return {
-        ...state,
-        eventList: newList
-      };
+      // case UPDATE_EVENT:
+      //   const filterList = state.eventList.filter(
+      //     event => event.id !== action.payload.id
+      //   )
+      //   const newList = [action.payload, filterList]
+      //   return {
+      //     ...state,
+      //     eventList: newList
+      //   }
 
-    case CANCEL_EVENT:
-      return {
-        ...state,
-        eventList: state.eventList.filter(event => event.id !== action.payload)
-      };
+      // case CANCEL_EVENT:
+      //   return {
+      //     ...state,
+      //     eventList: state.eventList.filter(event => event.id !== action.payload)
+      //   }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default eventReducer;
+export default eventReducer
