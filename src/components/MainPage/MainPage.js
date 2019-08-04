@@ -1,16 +1,16 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/styles';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import logo from '../../assets/logo.png';
-import Logo from '../Logo/Logo';
-import StatusSection from '../StatusSection/StatusSection';
-import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickReservationButtonGroup';
-import CalendarSideBar from '../CalendarSideBar/CalendarSideBar';
-import { roomStates } from '../../utils/consts';
-import AppBackground from '../../assets/main-page-background.jpg';
+import React from 'react'
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import { makeStyles } from '@material-ui/styles'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import logo from '../../assets/logo.png'
+import Logo from '../Logo/Logo'
+import StatusSection from '../StatusSection/StatusSection'
+import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickReservationButtonGroup'
+import CalendarSideBar from '../CalendarSideBar/CalendarSideBar'
+import { roomStates } from '../../utils/consts'
+import AppBackground from '../../assets/main-page-background.jpg'
 
 const useStyles = makeStyles(theme => ({
   mainPageContainer: {
@@ -42,26 +42,26 @@ const useStyles = makeStyles(theme => ({
   marginTop: {
     marginTop: '50px'
   }
-}));
+}))
 
 const resolveClasses = (roomState, classes) => {
-  console.log(`State = ${roomState},`);
+  console.log(`State = ${roomState},`)
   if (roomState === roomStates.OCCUPIED) {
-    return `${classes.mainPageContainer} ${classes.roomOccupied}`;
+    return `${classes.mainPageContainer} ${classes.roomOccupied}`
   }
-  return `${classes.mainPageContainer} ${classes.roomFree}`;
-};
+  return `${classes.mainPageContainer} ${classes.roomFree}`
+}
 
 const MainPage = ({ roomState }) => {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <Container className={resolveClasses(roomState, classes)} maxWidth={false}>
-      <Container maxWidth="xl">
+      <Container maxWidth='xl'>
         <Grid container spacing={0} className={classes.mainGrid}>
           <Grid item xs={8} className={classes.leftColumn}>
             <Grid container className={classes.leftColumnContainer}>
               <Grid item>
-                <Logo src={logo} alt="Logo" />
+                <Logo src={logo} alt='Logo' />
               </Grid>
               <Grid item container className={classes.statusSection}>
                 <Grid item className={classes.marginTop}>
@@ -80,11 +80,11 @@ const MainPage = ({ roomState }) => {
         </Grid>
       </Container>
     </Container>
-  );
-};
+  )
+}
 const mapStateToProps = state => {
-  return { roomState: state.roomInfo.state };
-};
+  return { roomState: state.roomInfo.state }
+}
 
 // const mapDispatchToProps = dispatch => {
 //   return {
@@ -92,8 +92,8 @@ const mapStateToProps = state => {
 //   };
 // };
 
-export default connect(mapStateToProps)(MainPage);
+export default connect(mapStateToProps)(MainPage)
 
 MainPage.propTypes = {
   roomState: PropTypes.string.isRequired
-};
+}

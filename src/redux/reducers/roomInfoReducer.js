@@ -1,10 +1,10 @@
-import { CHANGE_ROOM_STATUS } from '../actions/actionTypes';
-import { roomStates } from '../../utils/consts';
+import { CHANGE_ROOM_STATUS } from '../actions/actionTypes'
+import { roomStates } from '../../utils/consts'
 
 const initialState = {
   name: 'Room 407',
   state: roomStates.AVAILABLE
-};
+}
 
 const roomInfoReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,11 +12,11 @@ const roomInfoReducer = (state = initialState, action) => {
       return {
         ...state,
         status: action.payload
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default roomInfoReducer;
+export default roomInfoReducer

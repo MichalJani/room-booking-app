@@ -1,15 +1,15 @@
-import { CHANGE_DRAWER_STATE } from '../actions/actionTypes';
+import { CHANGE_DRAWER_STATE } from '../actions/actionTypes'
 
-const initialState = false;
+const initialState = false
 
 const drawerStateReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_DRAWER_STATE:
-      return action.payload;
+      return action.payload
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default drawerStateReducer;
+export default drawerStateReducer
