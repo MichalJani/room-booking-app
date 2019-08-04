@@ -1,9 +1,9 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -19,38 +19,38 @@ const useStyles = makeStyles(theme => ({
   status: {
     color: 'black'
   }
-}));
+}))
 
 const CalendarCard = props => {
+  console.log(props)
   const {
     description,
     location,
     id,
-    etag,
-    start: { dateTime, timeZone }
-  } = props;
-  const classes = useStyles();
+    start,
+    end
+  } = props
+  const classes = useStyles()
 
   return (
     <Card className={classes.card} id={id}>
       <CardContent>
         <Typography
           className={classes.title}
-          color="textSecondary"
           gutterBottom
         >
-          {`${dateTime} ${timeZone}`}
+          {`${start && start.dateTime} - ${end && end.dateTime} `}
         </Typography>
-        <Typography variant="h5" component="h5">
+        <Typography variant='h5' component='h5' className={classes.title}>
           {description}
         </Typography>
-        <Typography variant="h6" component="h6">
+        <Typography variant='h6' component='h6' cclassName={classes.title}>
           {location}
         </Typography>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
 CalendarCard.propTypes = {
   description: PropTypes.string.isRequired,
@@ -61,7 +61,6 @@ CalendarCard.propTypes = {
     dateTime: PropTypes.string,
     timeZone: PropTypes.string
   }).isRequired
-};
+}
 
-CalendarCard.defaultProps = {};
-export default CalendarCard;
+export default CalendarCard

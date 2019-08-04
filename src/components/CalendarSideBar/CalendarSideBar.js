@@ -1,43 +1,39 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import CalendarCard from '../CalendarCard/CalendarCard';
-import { changeDrawerState } from '../../redux/actions/actionCreators';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
+import Button from '@material-ui/core/Button'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import CalendarCard from '../CalendarCard/CalendarCard'
+import { changeDrawerState, getAllEvents } from '../../redux/actions/actionCreators'
 
 const useStyles = makeStyles({
   list: {
-    width: 250
+    maxWidth: 400
   }
-});
+})
 
-const CalendarSideBar = ({ drawerOpen, onClick }) => {
-  const classes = useStyles();
+const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
+  const classes = useStyles()
 
   const sideList = () => (
     <div
       className={classes.list}
-      role="presentation"
+      role='presentation'
       onClick={() => onClick(drawerOpen)}
       onKeyDown={() => onClick(drawerOpen)}
     >
-      <CalendarCard />
-
-      <CalendarCard />
-
-      <CalendarCard />
-
-      <CalendarCard />
+      {events.map(event => (
+        <CalendarCard {...event} />
+      ))}
     </div>
-  );
+  )
 
   return (
     <div>
       <Button onClick={() => onClick(drawerOpen)}>Open Calendar</Button>
       <SwipeableDrawer
-        anchor="right"
+        anchor='right'
         open={drawerOpen}
         onClose={() => onClick(drawerOpen)}
         onOpen={() => onClick(drawerOpen)}
@@ -45,8 +41,8 @@ const CalendarSideBar = ({ drawerOpen, onClick }) => {
         {sideList(events)}
       </SwipeableDrawer>
     </div>
-  );
-};
+  )
+}
 
 CalendarSideBar.propTypes = {
   events: PropTypes.arrayOf(
@@ -63,22 +59,26 @@ CalendarSideBar.propTypes = {
   ),
   drawerOpen: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
-};
+}
 
 const mapStateToProps = state => {
-  return { drawerOpen: state.drawerOpen };
-};
+  return {
+    drawerOpen: state.drawerOpen,
+    events: state.events.data
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: drawerOpen => dispatch(changeDrawerState(!drawerOpen))
-  };
-};
+    // onClick: drawerOpen => dispatch(changeDrawerState(!drawerOpen))
+    onClick: drawerOpen => {
+      dispatch(changeDrawerState(!drawerOpen))
+      dispatch(getAllEvents())
+    }
+  }
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CalendarSideBar);
-
-
-export default CalendarSideBar;
+)(CalendarSideBar)
