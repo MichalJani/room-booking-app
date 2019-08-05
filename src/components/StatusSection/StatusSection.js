@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
 const StatusSection = ({ status, roomName }) => {
   const classes = useStyles();
   return (
-    <Container maxWidth="false" className={classes.container}>
+    <Container className={classes.container}>
       <Typography variant="h4" component="h4">
         {status}
       </Typography>
