@@ -27,7 +27,7 @@ const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
         useDefault: true
       }
     };
-    console.log("TCL: QuickReservationButtonGroup -> booking", booking)
+    console.log('TCL: QuickReservationButtonGroup -> booking', booking);
     addEventRequest(booking);
   };
 

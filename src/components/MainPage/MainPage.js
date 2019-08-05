@@ -35,7 +35,7 @@ const MainPage = () => {
             </Grid>
             <Grid item container className={classes.statusSection}>
               <Grid item>
-                <StatusSection status="Avalible" roomName="Room 402" />
+                <StatusSection status="Available" roomName="Room 402" />
               </Grid>
               <Grid item mt={50}>
                 <QuickReservationButtonGroup

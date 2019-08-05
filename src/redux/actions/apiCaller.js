@@ -2,7 +2,7 @@ import { gapi } from '../../gapi';
 
 const callApi = (command, body = {}) =>
   gapi.client.calendar.events[command]({
-    "calendarId": "primary",
+    calendarId: 'primary',
     ...body
   })
     .then(res => {
@@ -11,6 +11,5 @@ const callApi = (command, body = {}) =>
     .catch(error => {
       throw error;
     });
-
 
 export default callApi;
