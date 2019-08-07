@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import { connect } from 'react-redux'
-import { addNewEvent } from '../../redux/actions/actionCreators'
+import { addEvent } from '../../redux/actions/actionCreators'
 import { timeVariants } from '../../utils/consts'
 
 const QuickReservationButtonGroup = ({ buttonVariants, onButtonClick }) => {
@@ -31,7 +31,7 @@ QuickReservationButtonGroup.propTypes = {
 const mapStateToProps = state => ({ buttonVariants: state.timeVariants })
 
 const mapDispatchToProps = dispatch => ({
-  onButtonClick: numOfMinutes => dispatch(addNewEvent(numOfMinutes))
+  onButtonClick: numOfMinutes => dispatch(addEvent(numOfMinutes))
 })
 
 export default connect(
