@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Button from '@material-ui/core/Button';
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 
 const CalendarSideBar = () => {
   const classes = useStyles();
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     isOpen: false
   });
 
@@ -40,7 +40,12 @@ const CalendarSideBar = () => {
 
   return (
     <div>
-      <Button onClick={toggleDrawer()}>Open Calendar</Button>
+      <Button
+        onClick={toggleDrawer()}
+        data-test="CalSideBarButton"
+      >
+        Open Calendar
+        </Button>
       <SwipeableDrawer
         anchor="right"
         open={state.isOpen}

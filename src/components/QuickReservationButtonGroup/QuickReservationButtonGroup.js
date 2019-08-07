@@ -5,7 +5,9 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { connect } from 'react-redux';
 import { addEventRequest } from '../../redux/actions/actionCreators';
 
-const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
+
+
+export const QuickReservationButtonGroup = ({ buttonVariants, addEventRequest }) => {
   const quickBook = num => {
     const startDate = new Date();
     const startTimeMil = startDate.getTime();
