@@ -8,15 +8,13 @@ import StatusSection from '../StatusSection/StatusSection';
 import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickReservationButtonGroup';
 import CalendarSideBar from '../CalendarSideBar/CalendarSideBar';
 
-
 const useStyles = makeStyles(theme => ({
   statusSection: {
     flexDirection: 'column',
-    justifySelf: 'center',
+    justifySelf: 'center'
   },
   mainGrid: {
-    minHeight: '100%',
-
+    minHeight: '100%'
   },
   leftColumnContainer: {
     justifyContent: 'space-between',
@@ -37,7 +35,7 @@ const MainPage = () => {
             </Grid>
             <Grid item container className={classes.statusSection}>
               <Grid item>
-                <StatusSection status="Avalible" roomName="Room 402" />
+                <StatusSection status="Available" roomName="Room 402" />
               </Grid>
               <Grid item mt={50}>
                 <QuickReservationButtonGroup

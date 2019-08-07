@@ -1,18 +1,15 @@
-import axios from 'axios';
+import { gapi } from '../../gapi';
 
-export const BASE_URL = 'https://dry-ravine-29395.herokuapp.com/api';
-
-export default function callApi(endpoint, method = 'GET', body) {
-  return axios({
-    method,
-    url: `${BASE_URL}/${endpoint}`,
-    data: JSON.stringify(body),
-    headers: { 'Content-Type': 'application/json' }
+const callApi = (command, body = {}) =>
+  gapi.client.calendar.events[command]({
+    calendarId: 'primary',
+    ...body
   })
     .then(res => {
-      return res.data;
+      return res;
     })
     .catch(error => {
-      return error;
+      throw error;
     });
-}
+
+export default callApi;

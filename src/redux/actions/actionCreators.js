@@ -14,12 +14,15 @@ export const getAllEvents = payload => {
   };
 };
 
-export const getAllEventsRequest = () => {
-  return dispatch => {
-    callApi('events').then(res => {
+export const getAllEventsRequest = () => dispatch => {
+  callApi('list')
+    .then(res => {
       dispatch(getAllEvents(res));
+    })
+    .catch(err => {
+      console.log(err);
+      // dispatch(err)
     });
-  };
 };
 
 export const getEvent = payload => {
@@ -29,27 +32,35 @@ export const getEvent = payload => {
   };
 };
 
-export const getEventRequest = id => {
-  return dispatch => {
-    callApi(`events/${id}`).then(res => {
+export const getEventRequest = id => dispatch => {
+  callApi('get', { eventId: id })
+    .then(res => {
       dispatch(getEvent(res));
+    })
+    .catch(err => {
+      console.log(err);
+      // dispatch(err)
     });
-  };
 };
 
 export const addEvent = payload => {
+  console.log('TCL: payload', payload);
   return {
     type: ADD_EVENT,
     payload
   };
 };
 
-export const addEventRequest = event => {
-  return dispatch => {
-    callApi('events', 'POST', event).then(res => {
-      dispatch(addEvent(res));
+export const addEventRequest = event => dispatch => {
+  callApi('insert', { resource: event })
+    .then(res => {
+      console.log(res);
+      dispatch(getEvent(res.result));
+    })
+    .catch(err => {
+      console.log(err);
+      // dispatch(err)
     });
-  };
 };
 
 export const updateEvent = payload => {
@@ -59,12 +70,18 @@ export const updateEvent = payload => {
   };
 };
 
-export const updateEventRequest = event => {
-  return dispatch => {
-    callApi('events', 'POST', event).then(res => {
-      dispatch(updateEvent(res));
+export const updateEventRequest = (event, id) => dispatch => {
+  callApi('update', {
+    eventId: id,
+    resource: event
+  })
+    .then(res => {
+      dispatch(updateEvent(res.result));
+    })
+    .catch(err => {
+      console.log(err);
+      // dispatch(err)
     });
-  };
 };
 
 export const cancelEvent = payload => {
@@ -74,10 +91,13 @@ export const cancelEvent = payload => {
   };
 };
 
-export const cancelEventRequest = id => {
-  return dispatch => {
-    callApi(`events/${id}`, 'DELETE').then(res => {
+export const cancelEventRequest = id => dispatch => {
+  callApi('delete', { eventId: id })
+    .then(res => {
       dispatch(cancelEvent(res));
+    })
+    .catch(err => {
+      console.log(err);
+      // dispatch(err)
     });
-  };
 };

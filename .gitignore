@@ -22,8 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# config
-/config
-
 # functions
 /functions
+
+# config
+src/config.js
