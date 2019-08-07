@@ -27,12 +27,12 @@ export const getAllEventsRequest = () => dispatch => {
     })
 }
 
-// export const getEvent = payload => {
-//   return {
-//     type: GET_EVENT,
-//     payload
-//   }
-// }
+export const getEvent = payload => {
+  return {
+    type: GET_EVENT,
+    payload
+  }
+}
 
 export const getEventRequest = id => dispatch => {
   callApi('get', { eventId: id })
@@ -65,12 +65,12 @@ export const addEventRequest = event => dispatch => {
     })
 }
 
-// export const updateEvent = payload => {
-//   return {
-//     type: UPDATE_EVENT,
-//     payload
-//   }
-// }
+export const updateEvent = payload => {
+  return {
+    type: UPDATE_EVENT,
+    payload
+  }
+}
 
 export const updateEventRequest = (event, id) => dispatch => {
   callApi('update', {
@@ -86,23 +86,23 @@ export const updateEventRequest = (event, id) => dispatch => {
     })
 }
 
-// export const cancelEvent = payload => {
-//   return {
-//     type: CANCEL_EVENT,
-//     payload
-//   }
-// }
+export const cancelEvent = payload => {
+  return {
+    type: CANCEL_EVENT,
+    payload
+  }
+}
 
-// export const cancelEventRequest = id => dispatch => {
-//   callApi('delete', { eventId: id })
-//     .then(res => {
-//       dispatch(cancelEvent(res))
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       // dispatch(err)
-//     })
-// }
+export const cancelEventRequest = id => dispatch => {
+  callApi('delete', { eventId: id })
+    .then(res => {
+      dispatch(cancelEvent(res))
+    })
+    .catch(err => {
+      console.log(err)
+      // dispatch(err)
+    })
+}
 
 export const changeRoomState = state => {
   return {
