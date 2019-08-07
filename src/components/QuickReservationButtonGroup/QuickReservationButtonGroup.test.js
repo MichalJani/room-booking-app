@@ -1,14 +1,14 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { QuickReservationButtonGroup } from './QuickReservationButtonGroup';
+import React from 'react'
+import { shallow, mount } from 'enzyme'
+import { QuickReservationButtonGroup } from './QuickReservationButtonGroup'
 
 
 describe('QuickReservationButtonGroup', () => {
   it('Should render without crashing',
     () => {
-      const wrapper = shallow(<QuickReservationButtonGroup buttonVariants={[]} addEventRequest={jest.fn()} />);
-      expect(wrapper).toBeTruthy();
-    });
+      const wrapper = shallow(<QuickReservationButtonGroup buttonVariants={[]} addEventRequest={jest.fn()} />)
+      expect(wrapper).toBeTruthy()
+    })
 
   // it('Should render ButtonGroup without crashing',
   //   () => {
@@ -29,7 +29,6 @@ describe('QuickReservationButtonGroup', () => {
   //   wrapper.unmount();
   // });
 
-});
+})
 
-
-// key={numOfMinutes} onClick={() => quickBook(numOfMinutes) 
+// key={numOfMinutes} onClick={() => quickBook(numOfMinutes)
