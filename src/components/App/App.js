@@ -55,11 +55,10 @@ const App = () => {
      *  Called when the signed in status changes, to update the UI
      *  appropriately. After a sign-in, the API is called.
      */
-    // function updateSigninStatus (isSignedIn) {
-    //   if (!isSignedIn) {
-    //     handleClientLoad()
-    //   }
-    // }
+    function updateSigninStatus (isSignedIn) {
+      if (isSignedIn) {
+      }
+    }
 
     handleClientLoad()
   }, [])
