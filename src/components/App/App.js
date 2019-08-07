@@ -20,18 +20,10 @@ const useStyles = makeStyles(theme => ({
 
 const App = () => {
   useEffect(() => {
-    /**
-     *  On load, called to load the auth2 library and API client library.
-     */
-    function handleClientLoad () {
+  handleClientLoad =()=> {
       gapi.load('client:auth2', initClient)
     }
-
-    /**
-     *  Initializes the API client library and sets up sign-in state
-     *  listeners.
-     */
-    function initClient () {
+    initClient= ()=> {
       gapi.client
         .init({
           apiKey: API_KEY,
@@ -41,25 +33,10 @@ const App = () => {
         })
         .then(
           function () {
-            // Listen for sign-in state changes.
-            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus)
-
-            // Handle the initial sign-in state.
-            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get())
             gapi.auth2.getAuthInstance().signIn()
           }
         )
     }
-
-    /**
-     *  Called when the signed in status changes, to update the UI
-     *  appropriately. After a sign-in, the API is called.
-     */
-    function updateSigninStatus (isSignedIn) {
-      if (isSignedIn) {
-      }
-    }
-
     handleClientLoad()
   }, [])
 
