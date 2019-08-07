@@ -1,8 +1,8 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import { Button } from '@material-ui/core';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -21,14 +21,14 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'space-between'
   }
-}));
+}))
 
 const BottomAppBar = () => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <React.Fragment>
-      <AppBar color="primary" className={classes.appBar}>
+      <AppBar color='primary' className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <Button className={classes.button}>Find Free Space</Button>
 
@@ -36,7 +36,7 @@ const BottomAppBar = () => {
         </Toolbar>
       </AppBar>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default BottomAppBar;
+export default BottomAppBar

@@ -14,16 +14,13 @@
     "react-redux": "^7.1.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-saga": "^1.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "eslint . --ext .js --fix"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "lint": "standard . --ext .js --fix"
   },
   "browserslist": {
     "production": [
@@ -37,22 +34,18 @@
       "last 1 safari version"
     ]
   },
+  "standard": {
+    "ignore": [
+      "*.bundle.js"
+    ]
+  },
   "devDependencies": {
     "babel-jest": "^24.8.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.1",
-    "eslint-config-node": "^4.0.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.14.3",
-    "jest": "^24.7.1",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "standard": "^13.1.0"
   }
 }

@@ -3,72 +3,74 @@ import {
   GET_ALL_EVENTS,
   UPDATE_EVENT,
   CANCEL_EVENT,
-  GET_EVENT
-} from './actionTypes';
-import callApi from './apiCaller';
+  GET_EVENT,
+  CHANGE_ROOM_STATUS,
+  CHANGE_DRAWER_STATE
+} from './actionTypes'
+import { callApi } from '../../utils/helpers'
 
 export const getAllEvents = payload => {
   return {
     type: GET_ALL_EVENTS,
     payload
-  };
-};
+  }
+}
 
 export const getAllEventsRequest = () => dispatch => {
   callApi('list')
     .then(res => {
-      dispatch(getAllEvents(res));
+      dispatch(getAllEvents(res))
     })
     .catch(err => {
-      console.log(err);
+      console.log(err)
       // dispatch(err)
-    });
-};
+    })
+}
 
-export const getEvent = payload => {
-  return {
-    type: GET_EVENT,
-    payload
-  };
-};
+// export const getEvent = payload => {
+//   return {
+//     type: GET_EVENT,
+//     payload
+//   }
+// }
 
 export const getEventRequest = id => dispatch => {
   callApi('get', { eventId: id })
     .then(res => {
-      dispatch(getEvent(res));
+      dispatch(getEvent(res))
     })
     .catch(err => {
-      console.log(err);
+      console.log(err)
       // dispatch(err)
-    });
-};
+    })
+}
 
 export const addEvent = payload => {
-  console.log('TCL: payload', payload);
+  console.log('TCL: payload', payload)
   return {
     type: ADD_EVENT,
     payload
-  };
-};
+  }
+}
 
 export const addEventRequest = event => dispatch => {
   callApi('insert', { resource: event })
     .then(res => {
-      console.log(res);
-      dispatch(getEvent(res.result));
+      console.log(res)
+      dispatch(getEvent(res.result))
     })
     .catch(err => {
-      console.log(err);
+      console.log(err)
       // dispatch(err)
-    });
-};
+    })
+}
 
-export const updateEvent = payload => {
-  return {
-    type: UPDATE_EVENT,
-    payload
-  };
-};
+// export const updateEvent = payload => {
+//   return {
+//     type: UPDATE_EVENT,
+//     payload
+//   }
+// }
 
 export const updateEventRequest = (event, id) => dispatch => {
   callApi('update', {
@@ -76,28 +78,42 @@ export const updateEventRequest = (event, id) => dispatch => {
     resource: event
   })
     .then(res => {
-      dispatch(updateEvent(res.result));
+      dispatch(updateEvent(res.result))
     })
     .catch(err => {
-      console.log(err);
+      console.log(err)
       // dispatch(err)
-    });
-};
+    })
+}
 
-export const cancelEvent = payload => {
+// export const cancelEvent = payload => {
+//   return {
+//     type: CANCEL_EVENT,
+//     payload
+//   }
+// }
+
+// export const cancelEventRequest = id => dispatch => {
+//   callApi('delete', { eventId: id })
+//     .then(res => {
+//       dispatch(cancelEvent(res))
+//     })
+//     .catch(err => {
+//       console.log(err)
+//       // dispatch(err)
+//     })
+// }
+
+export const changeRoomState = state => {
   return {
-    type: CANCEL_EVENT,
-    payload
-  };
-};
+    type: CHANGE_ROOM_STATUS,
+    payload: state
+  }
+}
 
-export const cancelEventRequest = id => dispatch => {
-  callApi('delete', { eventId: id })
-    .then(res => {
-      dispatch(cancelEvent(res));
-    })
-    .catch(err => {
-      console.log(err);
-      // dispatch(err)
-    });
-};
+export const changeDrawerState = state => {
+  return {
+    type: CHANGE_DRAWER_STATE,
+    payload: state
+  }
+}
