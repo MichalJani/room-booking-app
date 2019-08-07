@@ -16,16 +16,16 @@ export const getAllEvents = payload => {
   }
 }
 
-// export const getAllEventsRequest = () => dispatch => {
-//   callApi('list')
-//     .then(res => {
-//       dispatch(getAllEvents(res))
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       // dispatch(err)
-//     })
-// }
+export const getAllEventsRequest = () => dispatch => {
+  callApi('list')
+    .then(res => {
+      dispatch(getAllEvents(res))
+    })
+    .catch(err => {
+      console.log(err)
+      // dispatch(err)
+    })
+}
 
 // export const getEvent = payload => {
 //   return {
@@ -34,18 +34,18 @@ export const getAllEvents = payload => {
 //   }
 // }
 
-// export const getEventRequest = id => dispatch => {
-//   callApi('get', { eventId: id })
-//     .then(res => {
-//       dispatch(getEvent(res))
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       // dispatch(err)
-//     })
-// }
+export const getEventRequest = id => dispatch => {
+  callApi('get', { eventId: id })
+    .then(res => {
+      dispatch(getEvent(res))
+    })
+    .catch(err => {
+      console.log(err)
+      // dispatch(err)
+    })
+}
 
-export const addNewEvent = payload => {
+export const addEvent = payload => {
   console.log('TCL: payload', payload)
   return {
     type: ADD_EVENT,
@@ -53,17 +53,17 @@ export const addNewEvent = payload => {
   }
 }
 
-// export const addEventRequest = event => dispatch => {
-//   callApi('insert', { resource: event })
-//     .then(res => {
-//       console.log(res)
-//       dispatch(getEvent(res.result))
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       // dispatch(err)
-//     })
-// }
+export const addEventRequest = event => dispatch => {
+  callApi('insert', { resource: event })
+    .then(res => {
+      console.log(res)
+      dispatch(getEvent(res.result))
+    })
+    .catch(err => {
+      console.log(err)
+      // dispatch(err)
+    })
+}
 
 // export const updateEvent = payload => {
 //   return {
@@ -72,19 +72,19 @@ export const addNewEvent = payload => {
 //   }
 // }
 
-// export const updateEventRequest = (event, id) => dispatch => {
-//   callApi('update', {
-//     eventId: id,
-//     resource: event
-//   })
-//     .then(res => {
-//       dispatch(updateEvent(res.result))
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       // dispatch(err)
-//     })
-// }
+export const updateEventRequest = (event, id) => dispatch => {
+  callApi('update', {
+    eventId: id,
+    resource: event
+  })
+    .then(res => {
+      dispatch(updateEvent(res.result))
+    })
+    .catch(err => {
+      console.log(err)
+      // dispatch(err)
+    })
+}
 
 // export const cancelEvent = payload => {
 //   return {

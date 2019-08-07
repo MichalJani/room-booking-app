@@ -5,7 +5,10 @@ import Button from '@material-ui/core/Button'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import CalendarCard from '../CalendarCard/CalendarCard'
-import { changeDrawerState, getAllEvents } from '../../redux/actions/actionCreators'
+import {
+  changeDrawerState,
+  getAllEvents
+} from '../../redux/actions/actionCreators'
 
 const useStyles = makeStyles({
   list: {
@@ -31,7 +34,9 @@ const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
 
   return (
     <div>
-      <Button onClick={() => onClick(drawerOpen)}>Open Calendar</Button>
+      <Button onClick={() => onClick(drawerOpen)} data-test='CalSideBarButton'>
+        Open Calendar
+      </Button>
       <SwipeableDrawer
         anchor='right'
         open={drawerOpen}

@@ -62,9 +62,6 @@ const App = () => {
       if (isSignedIn) {
         listUpcomingEvents()
       }
-      // else {
-
-      // }
     }
 
     /**
