@@ -8,15 +8,13 @@ const setup = (props = {}) => {
 }
 
 describe('UpperAppBar', () => {
-  describe('Have props', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = setup()
-    })
-
-    it('Should render without crashing',
-      () => {
-        expect(wrapper).toBeTruthy()
-      })
+  let wrapper
+  beforeEach(() => {
+    wrapper = setup()
   })
+
+  it('Should render without crashing',
+    () => {
+      expect(wrapper).toBeTruthy()
+    })
 })

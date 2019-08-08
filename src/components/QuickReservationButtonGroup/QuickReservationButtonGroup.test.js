@@ -8,19 +8,17 @@ const setup = (props = {}) => {
 }
 
 describe('QuickReservationButtonGroup', () => {
-  describe('Have props', () => {
-    let wrapper
-    beforeEach(() => {
-      const props = {
-        buttonVariants: [],
-        addEventRequest: jest.fn()
-      }
-      wrapper = setup(props)
-    })
-
-    it('Should render without crashing',
-      () => {
-        expect(wrapper).toBeTruthy()
-      })
+  let wrapper
+  beforeEach(() => {
+    const props = {
+      buttonVariants: [],
+      addEventRequest: jest.fn()
+    }
+    wrapper = setup(props)
   })
+
+  it('Should render without crashing',
+    () => {
+      expect(wrapper).toBeTruthy()
+    })
 })
