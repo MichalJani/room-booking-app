@@ -20,10 +20,10 @@ const useStyles = makeStyles(theme => ({
 
 const App = () => {
   useEffect(() => {
-  handleClientLoad =()=> {
+    const handleClientLoad = () => {
       gapi.load('client:auth2', initClient)
     }
-    initClient= ()=> {
+    const initClient = () => {
       gapi.client
         .init({
           apiKey: API_KEY,
@@ -50,6 +50,6 @@ const App = () => {
       </Container>
     </Provider>
   )
-};
+}
 
 export default App
