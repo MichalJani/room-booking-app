@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   }
 })
 
-const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
+export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
   const classes = useStyles()
 
   const sideList = () => (
