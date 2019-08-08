@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { addEvent } from '../../redux/actions/actionCreators'
 import { timeVariants } from '../../utils/consts'
 
-const QuickReservationButtonGroup = ({ buttonVariants, onButtonClick }) => {
+export const QuickReservationButtonGroup = ({ buttonVariants, onButtonClick }) => {
   return (
     <ButtonGroup
       variant='contained'
