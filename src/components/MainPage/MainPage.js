@@ -52,7 +52,7 @@ const resolveClasses = (roomState, classes) => {
   return `${classes.mainPageContainer} ${classes.roomFree}`
 }
 
-const MainPage = ({ roomState }) => {
+export const MainPage = ({ roomState }) => {
   const classes = useStyles()
   return (
     <Container className={resolveClasses(roomState, classes)} maxWidth={false}>
