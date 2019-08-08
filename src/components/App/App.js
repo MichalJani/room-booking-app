@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/styles'
 import store from '../../store'
 import MainPage from '../MainPage/MainPage'
 import BottomAppBar from '../BottomAppBar/BottomAppBar'
-import { /* gapi, SCOPES, DISCOVERY_DOCS,  */handleClientLoad } from '../../gapi'
+import { handleClientLoad } from '../../gapi'
 
 const useStyles = makeStyles(theme => ({
   appContainer: {
