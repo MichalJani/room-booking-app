@@ -5,8 +5,7 @@ import { makeStyles } from '@material-ui/styles'
 import store from '../../store'
 import MainPage from '../MainPage/MainPage'
 import BottomAppBar from '../BottomAppBar/BottomAppBar'
-import { gapi, SCOPES, DISCOVERY_DOCS } from '../../gapi'
-import { CLIENT_ID, API_KEY } from '../../config'
+import { /* gapi, SCOPES, DISCOVERY_DOCS,  */handleClientLoad } from '../../gapi'
 
 const useStyles = makeStyles(theme => ({
   appContainer: {
@@ -20,23 +19,6 @@ const useStyles = makeStyles(theme => ({
 
 const App = () => {
   useEffect(() => {
-    const handleClientLoad = () => {
-      gapi.load('client:auth2', initClient)
-    }
-    const initClient = () => {
-      gapi.client
-        .init({
-          apiKey: API_KEY,
-          clientId: CLIENT_ID,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES
-        })
-        .then(
-          function () {
-            gapi.auth2.getAuthInstance().signIn()
-          }
-        )
-    }
     handleClientLoad()
   }, [])
 
