@@ -21,8 +21,10 @@ describe('Event Reducer', () => {
       { event: 'event2' },
       { event: 'event3' }
     ]
-    const newState = eventReducer(undefined, { type: GET_ALL_EVENTS_FINISH,
-      payload: events })
+    const newState = eventReducer(undefined, {
+      type: GET_ALL_EVENTS_FINISH,
+      payload: events
+    })
     expect(newState).toEqual({
       eventsState: eventStates.LOADED,
       data: events

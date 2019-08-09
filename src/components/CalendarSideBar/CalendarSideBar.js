@@ -34,7 +34,7 @@ export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
 
   return (
     <div>
-      <Button onClick={() => onClick(drawerOpen)} data-test='CalSideBarButton'>
+      <Button onClick={() => onClick(drawerOpen)}>
         Open Calendar
       </Button>
       <SwipeableDrawer
