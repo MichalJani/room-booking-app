@@ -1,31 +1,40 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Typography, Container } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Typography, Container } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   container: {
     padding: 0,
     margin: 0
+  },
+  bold: {
+    fontWeight: 700
+  },
+  marginTop: {
+    marginTop: '20px'
   }
-}));
-const StatusSection = ({ status, roomName }) => {
-  const classes = useStyles();
+}))
+
+export const StatusSection = ({ state, name }) => {
+  const classes = useStyles()
   return (
-    <Container className={classes.container}>
-      <Typography variant="h4" component="h4">
-        {status}
+    <Container maxWidth='false' className={classes.container}>
+      <Typography variant='h3' component='h3'>
+        {state}
       </Typography>
-      <Typography variant="h3" component="h3">
-        {roomName}
+      <Typography
+        variant='h2'
+        component='h2'
+        className={`${classes.bold} ${classes.marginTop}`}
+      >
+        {name}
       </Typography>
     </Container>
-  );
-};
+  )
+}
 
 StatusSection.propTypes = {
-  status: PropTypes.string.isRequired,
-  roomName: PropTypes.string.isRequired
-};
-
-export default StatusSection;
+  state: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+}

@@ -1,37 +1,37 @@
-import React, { useEffect } from 'react';
-import { Container } from '@material-ui/core';
-import { Provider } from 'react-redux';
-import { makeStyles } from '@material-ui/styles';
-import store from '../../store';
-import MainPage from '../MainPage/MainPage';
-import BottomAppBar from '../BottomAppBar/BottomAppBar';
-import { gapi, SCOPES, DISCOVERY_DOCS } from '../../gapi';
-import { CLIENT_ID, API_KEY } from '../../config';
+import React, { useEffect } from 'react'
+import { Container } from '@material-ui/core'
+import { Provider } from 'react-redux'
+import { makeStyles } from '@material-ui/styles'
+import store from '../../store'
+import { MainPageConnected } from '../MainPage/'
+import { BottomAppBar } from '../BottomAppBar/'
+import { gapi, SCOPES, DISCOVERY_DOCS } from '../../gapi'
+import { CLIENT_ID, API_KEY } from '../../config'
 
 const useStyles = makeStyles(theme => ({
   appContainer: {
     minHeight: '100vh',
     minWidth: '100%',
+    display: 'flex',
     margin: 0,
-    padding: 0,
-    display: 'flex'
+    padding: 0
   }
-}));
+}))
 
 const App = () => {
   useEffect(() => {
     /**
      *  On load, called to load the auth2 library and API client library.
      */
-    function handleClientLoad() {
-      gapi.load('client:auth2', initClient);
+    function handleClientLoad () {
+      gapi.load('client:auth2', initClient)
     }
 
     /**
      *  Initializes the API client library and sets up sign-in state
      *  listeners.
      */
-    function initClient() {
+    function initClient () {
       gapi.client
         .init({
           apiKey: API_KEY,
@@ -42,25 +42,25 @@ const App = () => {
         .then(
           function () {
             // Listen for sign-in state changes.
-            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus)
 
             // Handle the initial sign-in state.
-            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-            gapi.auth2.getAuthInstance().signIn();
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get())
+            gapi.auth2.getAuthInstance().signIn()
           },
           function (error) {
-            appendPre(JSON.stringify(error, null, 2));
+            appendPre(JSON.stringify(error, null, 2))
           }
-        );
+        )
     }
 
     /**
      *  Called when the signed in status changes, to update the UI
      *  appropriately. After a sign-in, the API is called.
      */
-    function updateSigninStatus(isSignedIn) {
+    function updateSigninStatus (isSignedIn) {
       if (isSignedIn) {
-        listUpcomingEvents();
+        listUpcomingEvents()
       }
     }
 
@@ -70,10 +70,10 @@ const App = () => {
      *
      * @param {string} message Text to be placed in pre element.
      */
-    function appendPre(message) {
+    function appendPre (message) {
       // var pre = document.getElementById('content');
-      var textContent = document.createTextNode(message + '\n');
-      console.log(textContent);
+      var textContent = document.createTextNode(message + '\n')
+      console.log(textContent)
     }
 
     /**
@@ -81,7 +81,7 @@ const App = () => {
      * the authorized user's calendar. If no events are found an
      * appropriate message is printed.
      */
-    function listUpcomingEvents() {
+    function listUpcomingEvents () {
       gapi.client.calendar.events
         .list({
           calendarId: 'primary',
@@ -92,35 +92,36 @@ const App = () => {
           orderBy: 'startTime'
         })
         .then(function (response) {
-          var events = response.result.items;
-          appendPre('Upcoming events:');
+          var events = response.result.items
+          appendPre('Upcoming events:')
 
           if (events.length > 0) {
             for (let i = 0; i < events.length; i++) {
-              var event = events[i];
-              var when = event.start.dateTime;
+              var event = events[i]
+              var when = event.start.dateTime
               if (!when) {
-                when = event.start.date;
+                when = event.start.date
               }
-              appendPre(event.summary + ' (' + when + ')');
+              appendPre(event.summary + ' (' + when + ')')
             }
           } else {
-            appendPre('No upcoming events found.');
+            appendPre('No upcoming events found.')
           }
-        });
+        })
     }
-    handleClientLoad();
-  }, []);
+    handleClientLoad()
+  }, [])
 
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Provider store={store}>
       <Container className={classes.appContainer} maxWidth={false}>
-        <MainPage />
+        <MainPageConnected />
         <BottomAppBar />
       </Container>
     </Provider>
-  );
-};
-export default App;
+  )
+}
+
+export default App
