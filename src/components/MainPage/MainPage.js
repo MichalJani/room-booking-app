@@ -4,10 +4,10 @@ import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/styles'
 import PropTypes from 'prop-types'
 import logo from '../../assets/logo.png'
-import Logo from '../Logo/Logo'
-import StatusSection from '../StatusSection/StatusSection'
-import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickReservationButtonGroup'
-import CalendarSideBar from '../CalendarSideBar/CalendarSideBar'
+import { Logo } from '../Logo/'
+import { StatusSectionConnected } from '../StatusSection/'
+import { QuickReservationButtonGroupConnected } from '../QuickReservationButtonGroup/'
+import { CalendarSideBarConnected } from '../CalendarSideBar/'
 import AppBackground from '../../assets/main-page-background.jpg'
 import { resolveClasses } from './helpers'
 
@@ -56,17 +56,17 @@ export const MainPage = ({ roomState }) => {
               </Grid>
               <Grid item container className={classes.statusSection}>
                 <Grid item className={classes.marginTop}>
-                  <StatusSection />
+                  <StatusSectionConnected />
                 </Grid>
                 <Grid item className={classes.marginTop}>
-                  <QuickReservationButtonGroup />
+                  <QuickReservationButtonGroupConnected />
                 </Grid>
               </Grid>
               <Grid item />
             </Grid>
           </Grid>
           <Grid item xs={4}>
-            <CalendarSideBar />
+            <CalendarSideBarConnected />
           </Grid>
         </Grid>
       </Container>

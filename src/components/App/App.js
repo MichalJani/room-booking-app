@@ -3,8 +3,8 @@ import { Container } from '@material-ui/core'
 import { Provider } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
 import store from '../../store'
-import MainPage from '../MainPage/MainPage'
-import BottomAppBar from '../BottomAppBar/BottomAppBar'
+import { MainPageConnected } from '../MainPage/'
+import { BottomAppBar } from '../BottomAppBar/'
 import { gapi, SCOPES, DISCOVERY_DOCS } from '../../gapi'
 import { CLIENT_ID, API_KEY } from '../../config'
 
@@ -117,11 +117,11 @@ const App = () => {
   return (
     <Provider store={store}>
       <Container className={classes.appContainer} maxWidth={false}>
-        <MainPage />
+        <MainPageConnected />
         <BottomAppBar />
       </Container>
     </Provider>
   )
-};
+}
 
 export default App
