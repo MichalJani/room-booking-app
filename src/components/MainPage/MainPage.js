@@ -2,15 +2,14 @@ import React from 'react'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/styles'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import logo from '../../assets/logo.png'
 import Logo from '../Logo/Logo'
 import StatusSection from '../StatusSection/StatusSection'
 import QuickReservationButtonGroup from '../QuickReservationButtonGroup/QuickReservationButtonGroup'
 import CalendarSideBar from '../CalendarSideBar/CalendarSideBar'
-import { roomStates } from '../../utils/consts'
 import AppBackground from '../../assets/main-page-background.jpg'
+import { resolveClasses } from './helpers'
 
 const useStyles = makeStyles(theme => ({
   mainPageContainer: {
@@ -44,15 +43,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const resolveClasses = (roomState, classes) => {
-  console.log(`State = ${roomState},`)
-  if (roomState === roomStates.OCCUPIED) {
-    return `${classes.mainPageContainer} ${classes.roomOccupied}`
-  }
-  return `${classes.mainPageContainer} ${classes.roomFree}`
-}
-
-const MainPage = ({ roomState }) => {
+export const MainPage = ({ roomState }) => {
   const classes = useStyles()
   return (
     <Container className={resolveClasses(roomState, classes)} maxWidth={false}>
@@ -82,17 +73,6 @@ const MainPage = ({ roomState }) => {
     </Container>
   )
 }
-const mapStateToProps = state => {
-  return { roomState: state.roomInfo.state }
-}
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onClick: event => dispatch(() => event)
-//   };
-// };
-
-export default connect(mapStateToProps)(MainPage)
 
 MainPage.propTypes = {
   roomState: PropTypes.string.isRequired

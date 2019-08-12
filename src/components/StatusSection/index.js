@@ -8,4 +8,4 @@ const mapStateToProps = state => {
   }
 }
 
-export const StatusSectionConnected = () => connect(mapStateToProps)(StatusSection)
+export const StatusSectionConnected = connect(mapStateToProps)(StatusSection)

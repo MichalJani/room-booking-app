@@ -2,13 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import Button from '@material-ui/core/Button'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import CalendarCard from '../CalendarCard/CalendarCard'
-import {
-  changeDrawerState,
-  getAllEvents
-} from '../../redux/actions/actionCreators'
 
 const useStyles = makeStyles({
   list: {
@@ -16,7 +11,7 @@ const useStyles = makeStyles({
   }
 })
 
-const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
+export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
   const classes = useStyles()
 
   const sideList = () => (
@@ -65,25 +60,3 @@ CalendarSideBar.propTypes = {
   drawerOpen: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 }
-
-const mapStateToProps = state => {
-  return {
-    drawerOpen: state.drawerOpen,
-    events: state.events.data
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    // onClick: drawerOpen => dispatch(changeDrawerState(!drawerOpen))
-    onClick: drawerOpen => {
-      dispatch(changeDrawerState(!drawerOpen))
-      dispatch(getAllEvents())
-    }
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CalendarSideBar)
