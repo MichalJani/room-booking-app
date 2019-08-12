@@ -3,18 +3,13 @@ import { shallow } from 'enzyme'
 import { QuickReservationButtonGroup } from './QuickReservationButtonGroup'
 
 describe('QuickReservationButtonGroup', () => {
-  // let wrapper
-  // beforeEach(() => {
-  //   const props = {
-  //     buttonVariants: [],
-  //     addEventRequest: jest.fn()
-  //   }
-  //   wrapper = setup(props)
-  // })
-
   it('Should render without crashing',
     () => {
-      const wrapper = shallow(<QuickReservationButtonGroup />)
+      const props = {
+        buttonVariants: [],
+        addEventRequest: jest.fn()
+      }
+      const wrapper = shallow(<QuickReservationButtonGroup {...props} />)
       expect(wrapper).toBeTruthy()
     })
 })

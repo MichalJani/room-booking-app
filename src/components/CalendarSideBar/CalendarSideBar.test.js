@@ -3,18 +3,13 @@ import { shallow } from 'enzyme'
 import { CalendarSideBar } from './CalendarSideBar'
 
 describe('CalendarSideBar', () => {
-  // let wrapper
-  // beforeEach(() => {
-  //   const props = {
-  //     drawerOpen: 'open',
-  //     onClick: jest.fn(),
-  //     events: [{}] }
-  //   wrapper = setup(props)
-  // })
-
   it('Should render without crashing',
     () => {
-      const wrapper = shallow(<CalendarSideBar />)
+      const props = {
+        drawerOpen: 'open',
+        onClick: jest.fn(),
+        events: [{}] }
+      const wrapper = shallow(<CalendarSideBar {...props} />)
       expect(wrapper).toBeTruthy()
     })
 })
