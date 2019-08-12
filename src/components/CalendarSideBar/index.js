@@ -11,7 +11,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // onClick: drawerOpen => dispatch(changeDrawerState(!drawerOpen))
     onClick: drawerOpen => {
       dispatch(changeDrawerState(!drawerOpen))
       dispatch(getAllEvents())
