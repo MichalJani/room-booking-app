@@ -20,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "standard . --ext .js --fix"
+    "lint": "standard . --ext .js --fix",
+    "ci": "npm run lint && npm test"
   },
   "browserslist": {
     "production": [
