@@ -16,8 +16,9 @@ jobs:
           paths:
             - /home/circleci/.npm
       - run:
-          name: Run Tests
-          command: npm test
+          name: Run Lint
+          command: npm run lint
       - run:
           name: Run Tests
-          command: npm run lint
+          command: npm test
+      
