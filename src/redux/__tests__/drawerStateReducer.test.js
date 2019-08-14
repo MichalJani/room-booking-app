@@ -1,7 +1,7 @@
 import {
   CHANGE_DRAWER_STATE
 } from '../actions/actionTypes'
-import drawerStateReducer from './drawerStateReducer'
+import drawerStateReducer from '../reducers/drawerStateReducer'
 
 describe('Drawer State Reducer', () => {
   it('Should return default state', () => {

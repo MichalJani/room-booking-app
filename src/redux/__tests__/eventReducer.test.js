@@ -3,7 +3,7 @@ import {
   GET_ALL_EVENTS_START,
   GET_ALL_EVENTS_FINISH
 } from '../actions/actionTypes'
-import eventReducer from './eventReducer'
+import eventReducer from '../reducers/eventReducer'
 import { eventStates } from '../../utils/consts'
 
 describe('Event Reducer', () => {

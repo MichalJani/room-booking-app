@@ -2,7 +2,7 @@ import {
   CHANGE_ROOM_STATUS
 } from '../actions/actionTypes'
 import { roomStates } from '../../utils/consts'
-import roomInfoReducer from './roomInfoReducer'
+import roomInfoReducer from '../reducers/roomInfoReducer'
 
 describe('Room Info Reducer', () => {
   it('Should return default state', () => {
