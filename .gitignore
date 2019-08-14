@@ -26,5 +26,3 @@ yarn-error.log*
 /functions
 
 src/config.js
-
-package-lock.json
