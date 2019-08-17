@@ -2,7 +2,6 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import MainPage from './MainPage'
 
-
 describe('MainPage', () => {
   it('Should render without crashing',
     () => {
@@ -16,6 +15,4 @@ describe('MainPage', () => {
       const logo = wrapper.find('Logo')
       expect(logo.length).toBe(1)
     })
-
-
 })
