@@ -44,3 +44,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Runs eslint ant autofixes code
 
+### `npm run ci`
+
+Runs linting and tests
