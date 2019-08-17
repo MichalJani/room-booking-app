@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: '20px'
   }
 }))
-const StatusSection = ({ state, name }) => {
+export const StatusSection = ({ state, name }) => {
   const classes = useStyles()
   return (
     <Container maxWidth='false' className={classes.container}>

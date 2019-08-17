@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   }
 })
 
-const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
+export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
   const classes = useStyles()
 
   const sideList = () => (
@@ -34,7 +34,7 @@ const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
 
   return (
     <div>
-      <Button onClick={() => onClick(drawerOpen)} data-test='CalSideBarButton'>
+      <Button onClick={() => onClick(drawerOpen)}>
         Open Calendar
       </Button>
       <SwipeableDrawer
