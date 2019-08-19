@@ -35,7 +35,6 @@ export const callApi = (command, body = {}) =>
     ...body
   })
     .then(res => {
-      console.log(`callApi response: ${res.json()}`)
       return res
     })
     .catch(error => {

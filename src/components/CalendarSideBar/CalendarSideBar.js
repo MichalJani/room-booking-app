@@ -7,12 +7,13 @@ import PropTypes from 'prop-types'
 import CalendarCard from '../CalendarCard/CalendarCard'
 import {
   changeDrawerState,
-  getAllEvents
+  getAllEventsRequest
 } from '../../redux/actions/actionCreators'
 
 const useStyles = makeStyles({
   list: {
     maxWidth: 400
+
   }
 })
 
@@ -37,14 +38,14 @@ export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
       <Button onClick={() => onClick(drawerOpen)}>
         Open Calendar
       </Button>
-      <SwipeableDrawer
+      {/* <SwipeableDrawer
         anchor='right'
         open={drawerOpen}
         onClose={() => onClick(drawerOpen)}
         onOpen={() => onClick(drawerOpen)}
       >
         {sideList(events)}
-      </SwipeableDrawer>
+      </SwipeableDrawer> */}
     </div>
   )
 }
@@ -78,7 +79,7 @@ const mapDispatchToProps = dispatch => {
     // onClick: drawerOpen => dispatch(changeDrawerState(!drawerOpen))
     onClick: drawerOpen => {
       dispatch(changeDrawerState(!drawerOpen))
-      dispatch(getAllEvents())
+      dispatch(getAllEventsRequest())
     }
   }
 }
