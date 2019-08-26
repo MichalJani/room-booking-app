@@ -34,6 +34,7 @@ const eventReducer = (state = initialState, action) => {
         eventList: action.payload
       }
     case ADD_EVENT:
+      console.log(state.eventList)
       return {
         ...state,
         data: [action.payload, ...state.eventList]
