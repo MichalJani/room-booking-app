@@ -20,6 +20,15 @@ const useStyles = makeStyles({
 export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
   const classes = useStyles()
 
+  const [state, setState] = React.useState({
+    isOpen: false
+  })
+
+  const toggleDrawer = () => event => {
+    const openState = !state.isOpen
+    setState({ ...state, isOpen: openState })
+  };
+
   const sideList = () => (
     <div
       className={classes.list}
@@ -38,14 +47,14 @@ export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
       <Button onClick={() => onClick(drawerOpen)}>
         Open Calendar
       </Button>
-      {/* <SwipeableDrawer
+      <SwipeableDrawer
         anchor='right'
         open={drawerOpen}
         onClose={() => onClick(drawerOpen)}
         onOpen={() => onClick(drawerOpen)}
       >
         {sideList(events)}
-      </SwipeableDrawer> */}
+      </SwipeableDrawer>
     </div>
   )
 }
