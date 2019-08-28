@@ -14,13 +14,14 @@
     "react-redux": "^7.1.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
-    "redux-saga": "^1.0.5"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "standard . --ext .js --fix"
+    "lint": "standard . --ext .js --fix",
+    "ci": "npm run lint && npm test"
   },
   "browserslist": {
     "production": [
@@ -48,6 +49,7 @@
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "moxios": "^0.4.0",
     "prettier": "^1.18.2",
     "standard": "^13.1.0"
   }

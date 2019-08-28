@@ -14,7 +14,7 @@ export const QuickReservationButtonGroup = ({ buttonVariants, onButtonClick }) =
     >
       {buttonVariants.map(numOfMinutes => (
         <Button key={numOfMinutes} onClick={() => onButtonClick(numOfMinutes)}>
-          {timeVariants[numOfMinutes]}
+          {timeVariants[numOfMinutes] + ' min'}
         </Button>
       ))}
     </ButtonGroup>
@@ -22,6 +22,6 @@ export const QuickReservationButtonGroup = ({ buttonVariants, onButtonClick }) =
 }
 
 QuickReservationButtonGroup.propTypes = {
-  buttonVariants: PropTypes.arrayOf(PropTypes.number).isRequired,
+  buttonVariants: PropTypes.arrayOf(PropTypes.string).isRequired,
   onButtonClick: PropTypes.func.isRequired
 }

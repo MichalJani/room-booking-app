@@ -7,19 +7,28 @@ import { CalendarCard } from '../CalendarCard'
 
 const useStyles = makeStyles({
   list: {
-    maxWidth: 400
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    maxWidth: 600,
+    backgroundColor: 'skyblue',
+    minHeight: '100%',
+    margin: '20px'
   }
 })
 
 export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
   const classes = useStyles()
+  console.log('TCL: CalendarSideBar -> events', events)
+  const { isDrawerOpen } = drawerOpen
+  console.log(isDrawerOpen)
 
   const sideList = () => (
     <div
       className={classes.list}
       role='presentation'
-      onClick={() => onClick(drawerOpen)}
-      onKeyDown={() => onClick(drawerOpen)}
+      onClick={() => onClick(isDrawerOpen)}
+      onKeyDown={() => onClick(isDrawerOpen)}
     >
       {events.map(event => (
         <CalendarCard {...event} />
@@ -29,14 +38,15 @@ export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
 
   return (
     <div>
-      <Button onClick={() => onClick(drawerOpen)} data-test='CalSideBarButton'>
+      <Button onClick={() => onClick(isDrawerOpen)}>
         Open Calendar
       </Button>
       <SwipeableDrawer
+        className={classes.swippableDrawer}
         anchor='right'
-        open={drawerOpen}
-        onClose={() => onClick(drawerOpen)}
-        onOpen={() => onClick(drawerOpen)}
+        open={isDrawerOpen}
+        onClose={() => onClick(isDrawerOpen)}
+        onOpen={() => onClick(isDrawerOpen)}
       >
         {sideList(events)}
       </SwipeableDrawer>
@@ -57,6 +67,6 @@ CalendarSideBar.propTypes = {
       }).isRequired
     })
   ),
-  drawerOpen: PropTypes.string.isRequired,
+  drawerOpen: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired
 }

@@ -10,6 +10,7 @@ import {
 import { callApi } from '../../utils/helpers'
 
 export const getAllEvents = payload => {
+  console.log(payload)
   return {
     type: GET_ALL_EVENTS,
     payload
@@ -19,6 +20,7 @@ export const getAllEvents = payload => {
 export const getAllEventsRequest = () => dispatch => {
   callApi('list')
     .then(res => {
+      console.log(res)
       dispatch(getAllEvents(res))
     })
     .catch(err => {
@@ -57,7 +59,7 @@ export const addEventRequest = event => dispatch => {
   callApi('insert', { resource: event })
     .then(res => {
       console.log(res)
-      dispatch(getEvent(res.result))
+      dispatch(addEvent(res.result))
     })
     .catch(err => {
       console.log(err)

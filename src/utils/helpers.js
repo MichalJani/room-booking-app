@@ -34,13 +34,12 @@ export const callApi = (command, body = {}) =>
     calendarId: 'primary',
     ...body
   })
-// .then(res => {
-//   console.log(`callApi response: ${res.json()}`)
-//   return res
-// })
-// .catch(error => {
-//   throw error
-// })
+    .then(res => {
+      return res
+    })
+    .catch(error => {
+      throw error
+    })
 
 export const unpackCalendarApiResponse = response => {
   response.body.json()

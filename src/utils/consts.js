@@ -10,9 +10,9 @@ export const eventStates = {
 }
 
 export const timeVariants = {
-  15: '15 mins',
-  30: '30 mins',
-  45: '45 mins',
-  60: '60 mins',
-  90: '90 mins'
+  15: 15,
+  30: 30,
+  45: 45,
+  60: 60,
+  90: 90
 }

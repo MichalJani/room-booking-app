@@ -1,15 +1,15 @@
-import { CHANGE_DRAWER_STATE } from '../actions/actionTypes'
+import { LOG_IN } from '../actions/actionTypes'
 
 const initialState = {
-  isDrawerOpen: false
+  isLoggedIn: false
 }
 
 const drawerStateReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_DRAWER_STATE:
+    case LOG_IN:
       return {
         ...state,
-        isDrawerOpen: action.payload
+        isLoggedIn: action.payload
       }
 
     default:
