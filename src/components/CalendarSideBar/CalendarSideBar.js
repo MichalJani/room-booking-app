@@ -31,7 +31,7 @@ export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
       onKeyDown={() => onClick(isDrawerOpen)}
     >
       {events.map(event => (
-        <CalendarCard {...event} />
+        <CalendarCard key={event.id} {...event} />
       ))}
     </div>
   )
