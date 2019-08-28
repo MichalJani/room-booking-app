@@ -12,7 +12,8 @@ import { eventStates } from '../../utils/consts'
 
 const initialState = {
   eventsState: eventStates.LOADED,
-  data: []
+  eventList: [],
+  errorMessage: null
 }
 
 const eventReducer = (state = initialState, action) => {
@@ -26,18 +27,25 @@ const eventReducer = (state = initialState, action) => {
       return {
         ...state,
         eventsState: eventStates.LOADED,
-        data: action.payload
+        eventList: action.payload
+      }
+    case GET_ALL_EVENTS_ERROR:
+      return {
+        ...state,
+        eventsState: eventStates.ERROR,
+        errorMessage: action.error
       }
     case GET_ALL_EVENTS:
       return {
         ...state,
-        eventList: action.payload
+        eventList: action.payload,
+        eventsState: eventStates.LOADED
       }
     case ADD_EVENT:
       console.log(state.eventList)
       return {
         ...state,
-        data: [action.payload, ...state.eventList]
+        eventList: [action.payload, ...state.eventList]
       }
 
     case GET_EVENT:

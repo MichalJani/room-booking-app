@@ -5,11 +5,14 @@ import {
   CANCEL_EVENT,
   GET_EVENT,
   CHANGE_ROOM_STATUS,
-  CHANGE_DRAWER_STATE
+  CHANGE_DRAWER_STATE,
+  GET_ALL_EVENTS_START,
+  GET_ALL_EVENTS_ERROR
 } from './actionTypes'
 import { callApi } from '../../utils/helpers'
+import { handleClientLoad } from '../../gapi'
 
-export const getAllEvents = payload => {
+export const setAllEvents = payload => {
   console.log(payload)
   return {
     type: GET_ALL_EVENTS,
@@ -17,16 +20,33 @@ export const getAllEvents = payload => {
   }
 }
 
-export const getAllEventsRequest = () => dispatch => {
-  callApi('list')
-    .then(res => {
-      console.log(res)
-      dispatch(getAllEvents(res))
-    })
-    .catch(err => {
-      console.log(err)
-      // dispatch(err)
-    })
+export const getAllEventsStart = () => {
+  return {
+    type: GET_ALL_EVENTS_START
+  }
+}
+
+export const getAllEventsError = (error) => {
+  return {
+    type: GET_ALL_EVENTS_ERROR,
+    error
+  }
+}
+
+export const getAllEventsRequest = () => async dispatch => {
+  dispatch(getAllEventsStart())
+  try {
+    if (!window.gapi.client) {
+      await handleClientLoad()
+    }
+
+    const response = await callApi('list')
+    console.log(response)
+    dispatch(setAllEvents(response))
+  } catch (error) {
+    console.log(error)
+    dispatch(getAllEventsError(error))
+  }
 }
 
 export const getEvent = payload => {
