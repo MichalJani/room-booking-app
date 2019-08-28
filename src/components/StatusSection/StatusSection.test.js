@@ -9,7 +9,7 @@ describe('StatusSection', () => {
         state: 'string',
         name: 'string'
       }
-      const wrapper = shallow(<StatusSection state name />)
+      const wrapper = shallow(<StatusSection {...props} />)
       expect(wrapper).toBeTruthy()
     })
 })

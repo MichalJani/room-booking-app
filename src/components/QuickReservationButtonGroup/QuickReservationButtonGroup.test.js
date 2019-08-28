@@ -6,6 +6,7 @@ describe('QuickReservationButtonGroup', () => {
   it('Should render without crashing',
     () => {
       const props = {
+        onButtonClick: jest.fn(),
         buttonVariants: [],
         addEventRequest: jest.fn()
       }

@@ -38,6 +38,9 @@
   "standard": {
     "ignore": [
       "*.bundle.js"
+    ],
+    "env": [
+      "jest"
     ]
   },
   "devDependencies": {

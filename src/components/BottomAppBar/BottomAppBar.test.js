@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import BottomAppBar from './BottomAppBar'
+import { BottomAppBar } from './BottomAppBar'
 
 describe('BottomAppBar', () => {
   it('Should render without crashing',

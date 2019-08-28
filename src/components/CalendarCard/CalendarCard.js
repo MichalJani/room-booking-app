@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const CalendarCard = props => {
+export const CalendarCard = props => {
   console.log(props)
   const {
     description,
@@ -62,5 +62,3 @@ CalendarCard.propTypes = {
     timeZone: PropTypes.string
   }).isRequired
 }
-
-export default CalendarCard

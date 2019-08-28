@@ -3,8 +3,8 @@ import { Container } from '@material-ui/core'
 import { Provider } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
 import store from '../../store'
-import MainPage from '../MainPage/MainPage'
-import BottomAppBar from '../BottomAppBar/BottomAppBar'
+import { MainPageConnected } from '../MainPage/'
+import { BottomAppBar } from '../BottomAppBar/'
 import { handleClientLoad } from '../../gapi'
 
 const useStyles = makeStyles(theme => ({
@@ -27,7 +27,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Container className={classes.appContainer} maxWidth={false}>
-        <MainPage />
+        <MainPageConnected />
         <BottomAppBar />
       </Container>
     </Provider>

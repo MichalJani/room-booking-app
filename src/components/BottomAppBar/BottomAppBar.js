@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const BottomAppBar = () => {
+export const BottomAppBar = () => {
   const classes = useStyles()
 
   return (
@@ -38,5 +38,3 @@ const BottomAppBar = () => {
     </React.Fragment>
   )
 }
-
-export default BottomAppBar
