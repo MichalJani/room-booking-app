@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 export const StatusSection = ({ state, name }) => {
   const classes = useStyles()
   return (
-    <Container maxWidth='false' className={classes.container}>
+    <Container className={classes.container}>
       <Typography variant='h3' component='h3'>
         {state}
       </Typography>

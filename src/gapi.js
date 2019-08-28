@@ -22,4 +22,9 @@ const initClient = () => {
         gapi.auth2.getAuthInstance().signIn()
       }
     )
+    // .then(
+    //   function () {
+    //     gapi.auth2.getAuthInstance().signIn()
+    //   }
+    // )
 }
