@@ -7,6 +7,7 @@ import { CalendarCard } from '../CalendarCard'
 
 const useStyles = makeStyles({
   list: {
+    width: '400px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -14,6 +15,9 @@ const useStyles = makeStyles({
     backgroundColor: 'skyblue',
     minHeight: '100%',
     margin: '20px'
+  },
+  swippableDrawer: {
+    minWidth: '400px'
   }
 })
 
