@@ -22,7 +22,6 @@ describe('getAllEventsRequest action', () => {
         response: expectedState
       })
     })
-    // change below to saga
     return store.dispatch(getAllEventsRequest())
       .then(() => {
         const newState = store.getState()
