@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
-import { addEvent } from '../../redux/actions/actionCreators'
+import { addEventRequest } from '../../redux/actions/actionCreators'
 import { QuickReservationButtonGroup } from './QuickReservationButtonGroup'
+import { quickBook } from './../../utils/helpers'
 
 const mapStateToProps = state => ({ buttonVariants: state.timeVariants })
 
 const mapDispatchToProps = dispatch => ({
-  onButtonClick: numOfMinutes => dispatch(addEvent(numOfMinutes))
+  onButtonClick: numOfMinutes => dispatch(addEventRequest(quickBook(numOfMinutes)))
 })
 
 export const QuickReservationButtonGroupConnected = connect(

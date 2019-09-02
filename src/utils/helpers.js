@@ -1,7 +1,7 @@
 import { addMinutes, format } from 'date-fns'
 import { gapi } from '../gapi'
 
-export const quickBook = (numOfMinutes, roomName) => {
+export const quickBook = (numOfMinutes, roomName = 406) => {
   const startDate = new Date(Date.now())
   const endDate = addMinutes(startDate, numOfMinutes)
   const parameters = {

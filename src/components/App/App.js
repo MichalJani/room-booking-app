@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Container } from '@material-ui/core'
 import { Provider } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
 import store from '../../store'
 import { MainPageConnected } from '../MainPage/'
 import { BottomAppBar } from '../BottomAppBar/'
-import { handleClientLoad } from '../../gapi'
 
 const useStyles = makeStyles(theme => ({
   appContainer: {
@@ -18,10 +17,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const App = () => {
-  useEffect(() => {
-    handleClientLoad()
-  }, [])
-
   const classes = useStyles()
 
   return (

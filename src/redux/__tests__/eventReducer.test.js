@@ -11,7 +11,7 @@ describe('Event Reducer', () => {
     const newState = eventReducer(undefined, {})
     expect(newState).toEqual({
       eventsState: eventStates.LOADED,
-      data: []
+      eventList: []
     })
   })
 
@@ -27,7 +27,7 @@ describe('Event Reducer', () => {
     })
     expect(newState).toEqual({
       eventsState: eventStates.LOADED,
-      data: events
+      eventList: events
     })
   })
 })

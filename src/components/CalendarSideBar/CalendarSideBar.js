@@ -61,14 +61,14 @@ export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
 CalendarSideBar.propTypes = {
   events: PropTypes.arrayOf(
     PropTypes.shape({
-      description: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      etag: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      location: PropTypes.string,
+      id: PropTypes.string,
+      etag: PropTypes.string,
       start: PropTypes.shape({
         dateTime: PropTypes.string,
         timeZone: PropTypes.string
-      }).isRequired
+      })
     })
   ),
   drawerOpen: PropTypes.object.isRequired,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/styles'
@@ -43,9 +43,17 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const MainPage = ({ roomState }) => {
+export const MainPage = ({ roomState, isFetching, getAllEventsRequest }) => {
+  useEffect(() => {
+    getAllEventsRequest()
+  }, [getAllEventsRequest])
+
   const classes = useStyles()
+  if (isFetching) {
+    return 'isFetching'
+  }
   return (
+
     <Container className={resolveClasses(roomState, classes)} maxWidth={false}>
       <Container maxWidth='xl'>
         <Grid container spacing={0} className={classes.mainGrid}>
