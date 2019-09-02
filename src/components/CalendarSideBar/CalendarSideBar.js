@@ -64,7 +64,7 @@ CalendarSideBar.propTypes = {
       start: PropTypes.shape({
         dateTime: PropTypes.string,
         timeZone: PropTypes.string
-      }).isRequired
+      })
     })
   ),
   drawerOpen: PropTypes.object.isRequired,

@@ -80,6 +80,14 @@ export const addEventRequest = event => dispatch => {
     .then(res => {
       console.log(res)
       dispatch(addEvent(res.result))
+      dispatch(getAllEventsRequest())
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.log(err)
+        // dispatch(err)
+        })
     })
     .catch(err => {
       console.log(err)
