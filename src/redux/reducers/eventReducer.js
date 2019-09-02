@@ -43,6 +43,7 @@ const eventReducer = (state = initialState, action) => {
       }
     case ADD_EVENT:
       console.log(state.eventList)
+      console.log(action.payload, '------payload-----')
       return {
         ...state,
         eventList: [action.payload, ...state.eventList]

@@ -41,8 +41,8 @@ export const getAllEventsRequest = () => async dispatch => {
     }
 
     const response = await callApi('list')
-    console.log(response)
-    dispatch(setAllEvents(response))
+    console.log(response.result.items, ' ----------------------------------------')
+    dispatch(setAllEvents(response.result.items))
   } catch (error) {
     console.log(error)
     dispatch(getAllEventsError(error))
@@ -78,16 +78,15 @@ export const addEvent = payload => {
 export const addEventRequest = event => dispatch => {
   callApi('insert', { resource: event })
     .then(res => {
-      console.log(res)
-      dispatch(addEvent(res.result))
+      // dispatch(addEvent(res.result))
       dispatch(getAllEventsRequest())
-        .then(res => {
-          console.log(res)
-        })
-        .catch(err => {
-          console.log(err)
-        // dispatch(err)
-        })
+      // .then(res => {
+
+      // })
+      // .catch(err => {
+      //   console.log(err, 'err---------err')
+      // // dispatch(err)
+      // })
     })
     .catch(err => {
       console.log(err)
