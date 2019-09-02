@@ -12,8 +12,7 @@ import { eventStates } from '../../utils/consts'
 
 const initialState = {
   eventsState: eventStates.LOADED,
-  eventList: [],
-  errorMessage: null
+  eventList: []
 }
 
 const eventReducer = (state = initialState, action) => {
@@ -42,8 +41,6 @@ const eventReducer = (state = initialState, action) => {
         eventsState: eventStates.LOADED
       }
     case ADD_EVENT:
-      console.log(state.eventList)
-      console.log(action.payload, '------payload-----')
       return {
         ...state,
         eventList: [action.payload, ...state.eventList]
