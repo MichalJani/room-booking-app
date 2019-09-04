@@ -73,15 +73,7 @@ export const addEvent = payload => {
 export const addEventRequest = event => dispatch => {
   callApi('insert', { resource: event })
     .then(res => {
-      // dispatch(addEvent(res.result))
       dispatch(getAllEventsRequest())
-      // .then(res => {
-
-      // })
-      // .catch(err => {
-      //   console.log(err, 'err---------err')
-      // // dispatch(err)
-      // })
     })
     .catch(err => {
       console.log(err)

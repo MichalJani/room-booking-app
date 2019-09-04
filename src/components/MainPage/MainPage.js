@@ -52,14 +52,16 @@ export const MainPage = ({ roomState, isFetching, getAllEventsRequest }) => {
     setTimeout(() => {
       getAllEventsRequest()
       callGoogle()
-    }, 100000)
+    }, 10000)
   }
 
   const classes = useStyles()
   if (isFetching) {
     return 'isFetching'
   }
+
   callGoogle()
+
   return (
     <Container className={resolveClasses(roomState, classes)} maxWidth={false}>
       <Container maxWidth='xl'>

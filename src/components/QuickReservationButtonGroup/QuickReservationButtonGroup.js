@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import { timeVariants } from '../../utils/consts'
 
-export const QuickReservationButtonGroup = ({ buttonVariants, onButtonClick }) => {
+export const QuickReservationButtonGroup = ({ buttonVariants, onButtonClick, roomState }) => {
   return (
     <ButtonGroup
       variant='contained'
