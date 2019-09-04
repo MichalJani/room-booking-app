@@ -48,12 +48,21 @@ export const MainPage = ({ roomState, isFetching, getAllEventsRequest }) => {
     getAllEventsRequest()
   }, [getAllEventsRequest])
 
+  function callGoogle () {
+    setTimeout(() => {
+      getAllEventsRequest()
+      callGoogle()
+    }, 10000)
+  }
+
   const classes = useStyles()
   if (isFetching) {
     return 'isFetching'
   }
-  return (
 
+  callGoogle()
+
+  return (
     <Container className={resolveClasses(roomState, classes)} maxWidth={false}>
       <Container maxWidth='xl'>
         <Grid container spacing={0} className={classes.mainGrid}>
