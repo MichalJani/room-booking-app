@@ -1,19 +1,27 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
-import CalendarSideBar from './CalendarSideBar'
+import { shallow } from 'enzyme'
+import { CalendarSideBar } from './CalendarSideBar'
 
 describe('CalendarSideBar', () => {
   it('Should render without crashing',
     () => {
-      const wrapper = shallow(<CalendarSideBar />)
+      const props = {
+        drawerOpen: { isDrawerOpen: true },
+        onClick: jest.fn(),
+        events: [
+          {
+            description: 'asd',
+            location: 'asd',
+            id: 'asd',
+            etag: 'asd',
+            start: {
+              dateTime: 'asd',
+              timeZone: 'asd'
+            }
+          }
+        ]
+      }
+      const wrapper = shallow(<CalendarSideBar {...props} />)
       expect(wrapper).toBeTruthy()
     })
-
-  // fit('Should set Drawer state to true on click', () => {
-  //   const wrapper = mount(<CalendarSideBar />);
-  //   const variable = wrapper.find('[data-test="CalSideBarButton"]')
-  //   console.log(variable)
-  //   expect(wrapper.state('isOpen')).toEqual(true);
-  //   // wrapper.unmount();
-  // });
 })

@@ -7,36 +7,50 @@ import { CalendarCard } from '../CalendarCard'
 
 const useStyles = makeStyles({
   list: {
-    maxWidth: 400
+    width: '400px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    maxWidth: 600,
+    backgroundColor: 'skyblue',
+    minHeight: '100%',
+    margin: '20px'
+  },
+  swippableDrawer: {
+    minWidth: '400px'
   }
 })
 
 export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
   const classes = useStyles()
+  console.log('TCL: CalendarSideBar -> events', events)
+  const { isDrawerOpen } = drawerOpen
+  console.log(isDrawerOpen)
 
   const sideList = () => (
     <div
       className={classes.list}
       role='presentation'
-      onClick={() => onClick(drawerOpen)}
-      onKeyDown={() => onClick(drawerOpen)}
+      onClick={() => onClick(isDrawerOpen)}
+      onKeyDown={() => onClick(isDrawerOpen)}
     >
       {events.map(event => (
-        <CalendarCard {...event} />
+        <CalendarCard key={event.id} {...event} />
       ))}
     </div>
   )
 
   return (
     <div>
-      <Button onClick={() => onClick(drawerOpen)} data-test='CalSideBarButton'>
+      <Button onClick={() => onClick(isDrawerOpen)}>
         Open Calendar
       </Button>
       <SwipeableDrawer
+        className={classes.swippableDrawer}
         anchor='right'
-        open={drawerOpen}
-        onClose={() => onClick(drawerOpen)}
-        onOpen={() => onClick(drawerOpen)}
+        open={isDrawerOpen}
+        onClose={() => onClick(isDrawerOpen)}
+        onOpen={() => onClick(isDrawerOpen)}
       >
         {sideList(events)}
       </SwipeableDrawer>
@@ -47,16 +61,16 @@ export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
 CalendarSideBar.propTypes = {
   events: PropTypes.arrayOf(
     PropTypes.shape({
-      description: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      etag: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      location: PropTypes.string,
+      id: PropTypes.string,
+      etag: PropTypes.string,
       start: PropTypes.shape({
         dateTime: PropTypes.string,
         timeZone: PropTypes.string
-      }).isRequired
+      })
     })
   ),
-  drawerOpen: PropTypes.string.isRequired,
+  drawerOpen: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired
 }

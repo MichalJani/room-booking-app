@@ -1,7 +1,7 @@
 import { addMinutes, format } from 'date-fns'
 import { gapi } from '../gapi'
 
-export const quickBook = (numOfMinutes, roomName) => {
+export const quickBook = (numOfMinutes, roomName = 406) => {
   const startDate = new Date(Date.now())
   const endDate = addMinutes(startDate, numOfMinutes)
   const parameters = {
@@ -34,13 +34,12 @@ export const callApi = (command, body = {}) =>
     calendarId: 'primary',
     ...body
   })
-// .then(res => {
-//   console.log(`callApi response: ${res.json()}`)
-//   return res
-// })
-// .catch(error => {
-//   throw error
-// })
+    .then(res => {
+      return res
+    })
+    .catch(error => {
+      throw error
+    })
 
 export const unpackCalendarApiResponse = response => {
   response.body.json()
