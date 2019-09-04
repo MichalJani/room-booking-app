@@ -13,7 +13,6 @@ import { callApi } from '../../utils/helpers'
 import { handleClientLoad } from '../../gapi'
 
 export const setAllEvents = payload => {
-  console.log(payload)
   return {
     type: GET_ALL_EVENTS,
     payload
@@ -34,17 +33,14 @@ export const getAllEventsError = (error) => {
 }
 
 export const getAllEventsRequest = () => async dispatch => {
-  dispatch(getAllEventsStart())
+  // dispatch(getAllEventsStart())
   try {
     if (!window.gapi.client) {
       await handleClientLoad()
     }
-
     const response = await callApi('list')
-    console.log(response.result.items, ' ----------------------------------------')
     dispatch(setAllEvents(response.result.items))
   } catch (error) {
-    console.log(error)
     dispatch(getAllEventsError(error))
   }
 }
@@ -68,7 +64,6 @@ export const getEventRequest = id => dispatch => {
 }
 
 export const addEvent = payload => {
-  console.log('TCL: payload', payload)
   return {
     type: ADD_EVENT,
     payload
