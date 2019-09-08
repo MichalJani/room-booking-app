@@ -31,7 +31,6 @@ export const BottomAppBar = () => {
       <AppBar color='primary' className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <Button className={classes.button}>Find Free Space</Button>
-
           <Button className={classes.button}>Schedule</Button>
         </Toolbar>
       </AppBar>

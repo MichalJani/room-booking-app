@@ -1,6 +1,4 @@
 import {
-  GET_ALL_EVENTS_ERROR,
-  GET_ALL_EVENTS_START,
   GET_ALL_EVENTS_FINISH
 } from '../actions/actionTypes'
 import eventReducer from '../reducers/eventReducer'

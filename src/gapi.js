@@ -9,6 +9,7 @@ const DISCOVERY_DOCS = [
 export const handleClientLoad = () => {
   gapi.load('client:auth2', initClient)
 }
+
 const initClient = () => {
   gapi.client
     .init({

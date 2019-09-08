@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const CalendarCard = props => {
-  console.log(props)
   const {
     description,
     location,

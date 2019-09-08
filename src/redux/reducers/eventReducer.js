@@ -22,24 +22,28 @@ const eventReducer = (state = initialState, action) => {
         ...state,
         eventsState: eventStates.FETCHING
       }
+
     case GET_ALL_EVENTS_FINISH:
       return {
         ...state,
         eventsState: eventStates.LOADED,
         eventList: action.payload
       }
+
     case GET_ALL_EVENTS_ERROR:
       return {
         ...state,
         eventsState: eventStates.ERROR,
         errorMessage: action.error
       }
+
     case GET_ALL_EVENTS:
       return {
         ...state,
         eventList: action.payload,
         eventsState: eventStates.LOADED
       }
+
     case ADD_EVENT:
       return {
         ...state,

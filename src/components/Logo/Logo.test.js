@@ -7,7 +7,7 @@ describe('Logo', () => {
     () => {
       const props = {
         src: 'asd',
-        alt: 'asd'
+        alt: 'fgh'
       }
       const wrapper = shallow(<Logo {...props} />)
       expect(wrapper).toBeTruthy()
