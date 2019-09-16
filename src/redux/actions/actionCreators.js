@@ -112,7 +112,6 @@ export const cancelEvent = payload => {
 export const cancelEventRequest = id => dispatch => {
   callApi('delete', { eventId: id })
     .then(res => {
-      // dispatch(cancelEvent(res))
       dispatch(getAllEventsRequest())
     })
     .catch(err => {

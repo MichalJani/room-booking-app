@@ -23,10 +23,7 @@ const useStyles = makeStyles({
 
 export const CalendarSideBar = ({ drawerOpen, onClick, events }) => {
   const classes = useStyles()
-  console.log('TCL: CalendarSideBar -> events', events)
   const { isDrawerOpen } = drawerOpen
-  console.log(isDrawerOpen)
-
   const sideList = () => (
     <div
       className={classes.list}

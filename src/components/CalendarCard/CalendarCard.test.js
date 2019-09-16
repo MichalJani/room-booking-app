@@ -15,7 +15,6 @@ describe('CalendarCard', () => {
           timeZone: 'asd'
         }
       }
-
       const wrapper = shallow(<CalendarCard {...props} />)
       expect(wrapper).toBeTruthy()
     })

@@ -18,14 +18,12 @@ export const quickBook = (numOfMinutes, roomName = 406) => {
       useDefault: true
     }
   }
-
   return parameters
 }
 
 export const formatDateToGoogleFormat = date => {
   return `${formatDatePart(date)}T${formatTimePart(date)}:00+02:00`
 }
-
 export const formatDatePart = date => format(date, 'YYYY-MM-DD')
 export const formatTimePart = date => format(date, 'HH:mm')
 
